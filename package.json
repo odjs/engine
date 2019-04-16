@@ -1,0 +1,42 @@
+{
+  "name": "@odjs/core",
+  "version": "0.0.1",
+  "description": "A param/option applier engine.",
+  "main": "dist/core.cjs.js",
+  "module": "dist/core.es.js",
+  "browser": "dist/core.umd.js",
+  "typings": "types",
+  "bundlib": {
+    "umd": "dist/core.umd.js",
+    "name": "odjs",
+    "id": "odjs"
+  },
+  "scripts": {
+    "dev": "bundlib -dw",
+    "prebuild": "rm -rf .cache dist types",
+    "build": "bundlib"
+  },
+  "keywords": [],
+  "dependencies": {
+    "isarray": "^2.0.4"
+  },
+  "devDependencies": {
+    "bundlib": "0.0.4",
+    "eslint": "^5.16.0",
+    "tslint": "^5.15.0"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "author": "Manuel Fernandez <manferlo81@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manferlo81/odjs-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manferlo81/odjs-core/issues"
+  },
+  "homepage": "https://github.com/manferlo81/odjs-core#readme",
+  "license": "MIT"
+}
