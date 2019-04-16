@@ -22,8 +22,7 @@ export { default as performParamApplier } from "./appliers/param-perf";
 export {
   applyParam,
   applyParamArgs,
-  applyPerforOptionParamArgs,
-  applyMultiPerforOptionParamArgs,
+  applyMultiParamArgs,
 } from "./apply-params";
 export {
   applyOption,
