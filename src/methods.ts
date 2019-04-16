@@ -1,21 +1,21 @@
-import { eachProp } from "./enumeration";
+import eachProp from "./each-prop";
 import { addEventHelper, removeEventHelper, setPropertyHelper } from "./helpers";
 import { isObject } from "./type-check";
 import { Dictionary, EventObject, ParamTarget } from "./types";
 
-export function setProp<T extends ParamTarget>(element: T, props: Dictionary<any>): T;
-export function setProp<T extends Dictionary<any>>(element: T, name: string, value: any): T;
-export function setProp<T extends Dictionary<any>>(element: T, name: string | Dictionary<any>, value?: any): T {
+export function setProp<T extends ParamTarget>(target: T, props: Dictionary<any>): T;
+export function setProp<T extends ParamTarget>(target: T, name: string, value: any): T;
+export function setProp<T extends ParamTarget>(target: T, name: string | Dictionary<any>, value?: any): T {
   if (isObject(name)) {
     eachProp<T>(
       name,
       setPropertyHelper,
-      element,
+      target,
     );
   } else {
-    element[name] = value;
+    target[name] = value;
   }
-  return element;
+  return target;
 }
 
 export function listen<M extends Dictionary<Event>, T extends EventTarget>(target: T, events: EventObject<T, M>): T;

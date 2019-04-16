@@ -18,11 +18,20 @@ export { default as propOptionApplier } from "./appliers/opt-prop";
 export { default as createOptionParamApplier } from "./appliers/param-create-opt";
 export { default as performParamApplier } from "./appliers/param-perf";
 
-// export * from "./apply-params";
-// export * from "./apply-options";
+// Apply
+export {
+  applyParam,
+  applyParamArgs,
+  applyPerforOptionParamArgs,
+  applyMultiPerforOptionParamArgs,
+} from "./apply-params";
+export {
+  applyOption,
+  applyOptionObject,
+} from "./apply-options";
 
-// // Core
-// export * from "./methods";
+// Core
+// export { } from "./methods";
 
-// // Types
-// export * from "./types";
+// Types
+export * from "./types";

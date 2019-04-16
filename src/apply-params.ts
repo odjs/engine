@@ -1,6 +1,7 @@
-import { createOptionParamApplier } from "./appliers/param-create-opt";
-import { performParamApplier } from "./appliers/param-perf";
 import { NextApplierCaller, OptionApplier, ParamApplier, ParamTarget } from "./types";
+
+import createOptionParamApplier from "./appliers/param-create-opt";
+import performParamApplier from "./appliers/param-perf";
 
 export function applyParam<T extends ParamTarget>(
   target: T,
