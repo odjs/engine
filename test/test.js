@@ -1,3 +1,4 @@
+// @ts-check
 const { applyParam, applyParamArgs, applyMultiParamArgs, performParamApplier } = require("..");
 
 describe("perform param applier", () => {

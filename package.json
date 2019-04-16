@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "bundlib -dw",
     "build": "bundlib",
-    "prebuild": "rm -rf .cache dist types",
+    "clean": "rm -rf .cache dist types",
     "test": "jest"
   },
   "keywords": [
