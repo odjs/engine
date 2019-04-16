@@ -16,7 +16,14 @@
     "prebuild": "rm -rf .cache dist types",
     "build": "bundlib"
   },
-  "keywords": [],
+  "keywords": [
+    "odjs",
+    "core",
+    "param",
+    "option",
+    "applier",
+    "engine"
+  ],
   "dependencies": {
     "isarray": "^2.0.4"
   },
