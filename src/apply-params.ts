@@ -56,38 +56,3 @@ export function applyMultiParamArgs<T extends ParamTarget>(
   }
   return targets;
 }
-
-// export function applyPerforOptionParamArgs<T extends ParamTarget>(
-//   target: T,
-//   appliers: Array<OptionApplier<T, any>>,
-//   args: IArguments,
-//   start?: number,
-// ): T {
-//   start = start || 0;
-//   const paramAppliers = [performParamApplier, createOptionParamApplier<T>(appliers)];
-//   for (let i = start; i < args.length; i++) {
-//     applyParam<T>(
-//       target,
-//       args[i],
-//       paramAppliers,
-//     );
-//   }
-//   return target;
-// }
-
-// export function applyMultiPerforOptionParamArgs<T extends ParamTarget>(
-//   targets: T[],
-//   appliers: Array<OptionApplier<T, any>>,
-//   args: IArguments,
-//   start?: number,
-// ): T[] {
-//   for (let i = 0, len = targets.length; i < len; i++) {
-//     applyPerforOptionParamArgs(
-//       targets[i],
-//       appliers,
-//       args,
-//       start,
-//     );
-//   }
-//   return targets;
-// }
