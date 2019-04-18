@@ -18,7 +18,8 @@ executors:
 
 #       - run:
 #           name: Publish to npm
-#           command: npm publish
+#           # specify access for scoped package
+#           command: npm publish --access public
 
 jobs:
 
