@@ -4,6 +4,7 @@
   "description": "A param/option applier engine.",
   "main": "dist/core.cjs.js",
   "module": "dist/core.es.js",
+  "browser": "dist/core.umd.js",
   "typings": "types",
   "bundlib": {
     "umd": "dist/core.umd.js",
@@ -11,8 +12,9 @@
     "id": "odjs"
   },
   "scripts": {
+    "lint": "tslint src/**",
     "dev": "bundlib -dw",
-    "build": "bundlib",
+    "build": "npm run lint && bundlib",
     "clean": "rm -rf .cache dist types",
     "test": "jest"
   },
