@@ -1,16 +1,20 @@
 
+const CI = !!process.env.CI;
+
 module.exports = {
 
   testEnvironment: "node",
 
-  collectCoverage: true,
+  // for now coverage is disabled on ci
+  collectCoverage: !CI,
   collectCoverageFrom: [
     "dist/**",
   ],
   coverageDirectory: "coverage",
   coverageReporters: [
-    process.env.CI ? "json" : "lcov",
+    CI ? "json" : "lcov",
     "text",
+    "text-summary",
   ],
 
   verbose: true,
