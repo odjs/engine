@@ -21,7 +21,11 @@ export function setProp<T extends ParamTarget>(target: T, name: string | Diction
 export function listen<M extends Dictionary<Event>, T extends EventTarget>(target: T, events: EventObject<T, M>): T;
 export function listen<M extends Dictionary<any>, T extends EventTarget>(target: T, events: EventObject<T, M>): T;
 export function listen<T extends EventTarget>(target: T, type: string, listener: EventListener): T;
-export function listen<T extends EventTarget>(target: T, type: string | EventObject<T, Dictionary<any>>, listener?: EventListener): T {
+export function listen<T extends EventTarget>(
+  target: T,
+  type: string | EventObject<T, Dictionary<any>>,
+  listener?: EventListener,
+): T {
   if (isObject(type)) {
     eachProp<T>(
       type,
@@ -41,7 +45,11 @@ export function listen<T extends EventTarget>(target: T, type: string | EventObj
 export function unlisten<M extends Dictionary<Event>, T extends EventTarget>(target: T, events: EventObject<T, M>): T;
 export function unlisten<M extends Dictionary<any>, T extends EventTarget>(target: T, events: EventObject<T, M>): T;
 export function unlisten<T extends EventTarget>(target: T, type: string, listener: EventListener): T;
-export function unlisten<T extends EventTarget>(target: T, type: string | EventObject<T, Dictionary<any>>, listener?: EventListener): T {
+export function unlisten<T extends EventTarget>(
+  target: T,
+  type: string | EventObject<T, Dictionary<any>>,
+  listener?: EventListener,
+): T {
   if (isObject(type)) {
     eachProp<T>(
       type,
