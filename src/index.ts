@@ -4,10 +4,6 @@ export { isNull, isObject, isString, isNumber, isCallable, isArray } from "./typ
 // Tools
 export { default as eachProp } from "./each-prop";
 export { default as stringify } from "./stringify";
-// export { toArray } from "./tools";
-
-// Helpers
-export { setPropertyHelper, addEventHelper, removeEventHelper } from "./helpers";
 
 // Appliers
 export { default as createDBOptionApplier } from "./appliers/opt-create-db";
@@ -28,9 +24,6 @@ export {
   applyOption,
   applyOptionObject,
 } from "./apply-options";
-
-// Core
-// export { } from "./methods";
 
 // Types
 export * from "./types";
