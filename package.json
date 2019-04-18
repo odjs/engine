@@ -16,7 +16,7 @@
     "dev": "bundlib -dw",
     "build": "npm run lint && bundlib",
     "clean": "rm -rf .cache dist types",
-    "test": "jest"
+    "test": "jest --colors"
   },
   "keywords": [
     "odjs",
