@@ -13,10 +13,11 @@
   },
   "scripts": {
     "lint": "tslint src/**",
+    "clean": "rm -rf dist types coverage",
     "dev": "bundlib -dw",
     "build": "npm run lint && bundlib",
-    "clean": "rm -rf .cache dist types",
-    "test": "jest --colors"
+    "test": "jest --colors",
+    "preversion": "npm run clean && npm run build && npm test"
   },
   "keywords": [
     "odjs",
@@ -30,6 +31,7 @@
     "isarray": "^2.0.4"
   },
   "devDependencies": {
+    "@types/isarray": "^2.0.0",
     "@types/jest": "^24.0.11",
     "bundlib": "^0.1.0",
     "eslint": "^5.16.0",
