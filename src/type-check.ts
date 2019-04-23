@@ -1,7 +1,4 @@
-import isArray from "isarray";
 import { AnyFunction } from "./types";
-
-export { isArray };
 
 type TypeString = "undefined" | "string" | "number" | "boolean" | "bigint" | "object" | "symbol" | "function";
 
