@@ -29,5 +29,3 @@ export function isObject<V = any>(param: any): param is Record<keyof any, V> {
 export function isCallable<T extends AnyFunction>(param: any): param is T {
   return isType<T>(param, "function");
 }
-
-// export const isArray: <T = any>(param: any) => param is T[] = Array.isArray;

@@ -8,12 +8,6 @@ interface IEventOptionMap<T extends Target, M extends Dictionary<Event>> {
   events: EventObject<T, M> & Dictionary<Listener<T, Event>>;
 }
 
-// type EventOptionDBMap<
-//   T extends Target,
-//   MON extends Dictionary<any>,
-//   M extends Dictionary<any>,
-//   > = IEventOptionMap<T, M> & EventObject<T, MON>;
-
 const eventOptionDB: OptionDB<Target, IEventOptionMap<Target, Dictionary<Event>>> = {
 
   events(target, value) {

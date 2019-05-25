@@ -9,8 +9,6 @@ interface IObjectOptionMap<T extends Target> {
   perform: PerformHandlerParam<T>;
 }
 
-// type ObjectOptionDBMap<T extends Target> = IObjectOptionMap<T>;
-
 const objectOptionDB: OptionDB<Target, IObjectOptionMap<Target>> = {
 
   prop(target, props) {
