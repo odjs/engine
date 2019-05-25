@@ -7,7 +7,7 @@
   "browser": "dist/core.umd.js",
   "typings": "types",
   "bundlib": {
-    "umd": "dist/core.umd.js",
+    "browser": "umd",
     "name": "odjs",
     "id": "odjs"
   },
@@ -15,7 +15,7 @@
     "lint": "tslint src/**",
     "clean": "rm -rf dist types coverage",
     "dev": "bundlib -dw",
-    "build": "npm run lint && bundlib",
+    "build": "npm run lint && bundlib -d",
     "test": "jest --colors",
     "preversion": "npm run clean && npm run build && npm test"
   },
@@ -32,10 +32,10 @@
   },
   "devDependencies": {
     "@types/isarray": "^2.0.0",
-    "@types/jest": "^24.0.11",
-    "bundlib": "^0.1.0",
+    "@types/jest": "^24.0.13",
+    "bundlib": "^0.3.1",
     "eslint": "^5.16.0",
-    "jest": "^24.7.1",
+    "jest": "^24.8.0",
     "tslint": "^5.16.0"
   },
   "files": [
