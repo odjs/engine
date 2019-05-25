@@ -31,15 +31,15 @@ jobs:
 
       - restore_cache:
           keys:
-            - v1-dep-odjs-core-{{ checksum "package-lock.json" }}
-            - v1-dep-odjs-core-
+            - v1-dep-odjs-engine-{{ checksum "package-lock.json" }}
+            - v1-dep-odjs-engine-
 
       - run:
           name: Install Dependencies
           command: npm install
 
       - save_cache:
-          key: v1-dep-odjs-core-{{ checksum "package-lock.json" }}
+          key: v1-dep-odjs-engine-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
 

@@ -42,14 +42,17 @@
     "dist",
     "types"
   ],
+  "directories": {
+    "test": "test"
+  },
   "author": "Manuel Fernandez <manferlo81@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manferlo81/odjs-core.git"
+    "url": "git+https://github.com/manferlo81/odjs-engine.git"
   },
   "bugs": {
-    "url": "https://github.com/manferlo81/odjs-core/issues"
+    "url": "https://github.com/manferlo81/odjs-engine/issues"
   },
-  "homepage": "https://github.com/manferlo81/odjs-core#readme",
+  "homepage": "https://github.com/manferlo81/odjs-engine#readme",
   "license": "MIT"
 }
