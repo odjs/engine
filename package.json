@@ -1,5 +1,5 @@
 {
-  "name": "@odjs/core",
+  "name": "@odjs/engine",
   "version": "0.0.1",
   "description": "A param/option applier engine.",
   "main": "dist/core.cjs.js",
