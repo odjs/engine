@@ -1,4 +1,5 @@
 // @ts-check
+
 const { applyParam, applyParamArgs, applyMultiParamArgs, createOptionParamApplier } = require("..");
 
 describe("option param applier", () => {
