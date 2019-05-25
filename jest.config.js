@@ -1,3 +1,4 @@
+const { main } = require("./package.json");
 
 const CI = !!process.env.CI;
 
@@ -8,7 +9,7 @@ module.exports = {
   // for now coverage is disabled on ci
   collectCoverage: !CI,
   collectCoverageFrom: [
-    "dist/**",
+    main,
   ],
   coverageDirectory: "coverage",
   coverageReporters: [
