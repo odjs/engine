@@ -1,8 +1,8 @@
 // @ts-check
 
-const { applyParam, applyParamArgs, applyMultiParamArgs } = require("..");
+const { applyParam, applyParamArgs, applyMultiParamArgs, applyOption, applyOptionObject } = require("..");
 
-describe("perform param applier", () => {
+describe("return type", () => {
 
   test("should return target from applyParam", () => {
 
@@ -29,6 +29,24 @@ describe("perform param applier", () => {
     const result = applyMultiParamArgs(targets, [], [], 0);
 
     expect(result).toBe(targets);
+
+  });
+
+  test("should return target from applyOption", () => {
+
+    const target = {};
+    const result = applyOption(100, "test", [target, []]);
+
+    expect(result).toBe(target);
+
+  });
+
+  test("should return target from applyOptionObject", () => {
+
+    const target = {};
+    const result = applyOptionObject(target, {}, []);
+
+    expect(result).toBe(target);
 
   });
 
