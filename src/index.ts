@@ -12,8 +12,8 @@ export { default as eventDBOptionApplier } from "./appliers/opt-event-db";
 export { default as eventOnOptionApplier } from "./appliers/opt-event-on";
 export { default as objectDBOptionApplier } from "./appliers/opt-object-db";
 export { default as propOptionApplier } from "./appliers/opt-prop";
-export { default as createOptionParamApplier } from "./appliers/param-create-opt";
-export { default as performParamApplier } from "./appliers/param-perf";
+export { default as createOptionParamApplier } from "./appliers/param-create-opt-2";
+export { default as performParamApplier } from "./appliers/param-perf-2";
 
 // Apply
 export {

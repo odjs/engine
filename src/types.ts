@@ -22,6 +22,21 @@ export type OptionApplier<T extends ParamTarget, V> = (
   next: NextApplierCaller,
 ) => void;
 
+// Appliers 2
+
+export interface Applier2<T extends ParamTarget> {
+  name: string;
+  test?: (param: unknown) => boolean;
+}
+
+export interface OptionApplier2<T extends ParamTarget, V> extends Applier2<T> {
+  apply: (target: T, name: string, value: V) => void;
+}
+
+export interface ParamApplier2<T extends ParamTarget, P> extends Applier2<T> {
+  apply: (target: T, param: P) => void;
+}
+
 // Option DB
 
 export type OptionDBHandler<T extends ParamTarget, V> = (target: T, value: V) => void;

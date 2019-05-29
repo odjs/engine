@@ -4,10 +4,11 @@ const { performParamApplier, applyParam } = require("../..");
 
 describe("perform param applier", () => {
 
-  test("should apply param", () => {
+  test("should apply and stop if match", () => {
 
     const target = {};
-    const appliers = [performParamApplier];
+    const mockParamApplier = jest.fn();
+    const appliers = [performParamApplier, mockParamApplier];
 
     const param = (target) => {
       target.test = 10;
@@ -16,20 +17,8 @@ describe("perform param applier", () => {
     applyParam(target, param, appliers);
 
     expect(target).toEqual({ test: 10 });
-
-  });
-
-  test("should apply and stop if match", () => {
-
-    const target = {};
-    const mockParamApplier = jest.fn();
-    const appliers = [performParamApplier, mockParamApplier];
-
-    const param = () => { };
-
-    applyParam(target, param, appliers);
-
     expect(mockParamApplier).not.toHaveBeenCalledTimes(1);
+
 
   });
 

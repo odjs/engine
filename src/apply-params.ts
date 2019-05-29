@@ -1,19 +1,30 @@
-import { NextApplierCaller, ParamApplier, ParamTarget } from "./types";
+import { isCallable } from "./type-check";
+import { NextApplierCaller, ParamApplier, ParamApplier2, ParamTarget, PerformHandlerParam } from "./types";
 
 export function applyParam<T extends ParamTarget>(
   target: T,
   param: unknown,
-  appliers: Array<ParamApplier<T>>,
+  appliers: Array<ParamApplier<T> | ParamApplier2<T, PerformHandlerParam<T>>>,
 ): T {
   let index = 0;
   const next: NextApplierCaller = () => {
     const applier = appliers[index++];
     if (applier) {
-      applier(
-        target,
-        param,
-        next,
-      );
+      if (isCallable(applier)) {
+        // supprt legacy applier
+        applier(
+          target,
+          param,
+          next,
+        );
+      } else {
+        // use modern applier
+        if (!applier.test || applier.test(param)) {
+          applier.apply(target, param as any);
+        } else {
+          next();
+        }
+      }
     }
   };
   next();
