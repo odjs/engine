@@ -6,6 +6,8 @@ module.exports = {
 
   testEnvironment: "node",
 
+  cacheDirectory: ".cache/jest",
+
   // for now coverage is disabled on ci
   collectCoverage: !CI,
   collectCoverageFrom: [
