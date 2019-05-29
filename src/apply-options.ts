@@ -16,10 +16,6 @@ export function applyOption<T extends ParamTarget>(
 
     if (applier) {
 
-      if (isCallable(applier)) {
-        throw new Error("legacy function appliers!");
-      }
-
       if (!applier.test || applier.test.call(applier, name)) {
         applier.apply(target, name, value);
       } else {

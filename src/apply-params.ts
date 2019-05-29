@@ -15,10 +15,6 @@ export function applyParam<T extends ParamTarget>(
 
     if (applier) {
 
-      if (isCallable(applier)) {
-        throw new Error("legacy function applier!");
-      }
-
       if (!applier.test || applier.test(param)) {
         applier.apply(target, param as any);
       } else {
