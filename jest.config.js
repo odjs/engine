@@ -5,6 +5,7 @@ const CI = !!process.env.CI;
 module.exports = {
 
   testEnvironment: "node",
+  browser: false,
 
   cacheDirectory: ".cache/jest",
 
