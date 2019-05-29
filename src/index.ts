@@ -7,13 +7,13 @@ export { default as isArray } from "isarray";
 export { default as eachProp } from "./each-prop";
 
 // Appliers
-export { default as createDBOptionApplier } from "./appliers/opt-create-db-2";
-export { default as eventDBOptionApplier } from "./appliers/opt-event-db-2";
-export { default as eventOnOptionApplier } from "./appliers/opt-event-on-2";
-export { default as objectDBOptionApplier } from "./appliers/opt-object-db-2";
-export { default as propOptionApplier } from "./appliers/opt-prop-2";
-export { default as createOptionParamApplier } from "./appliers/param-create-opt-2";
-export { default as performParamApplier } from "./appliers/param-perf-2";
+export { default as createDBOptionApplier } from "./appliers/opt-create-db";
+export { default as eventDBOptionApplier } from "./appliers/opt-event-db";
+export { default as eventOnOptionApplier } from "./appliers/opt-on-event";
+export { default as objectDBOptionApplier } from "./appliers/opt-object-db";
+export { default as propOptionApplier } from "./appliers/opt-prop";
+export { default as createOptionParamApplier } from "./appliers/param-create-opt";
+export { default as performParamApplier } from "./appliers/param-perform";
 
 // Apply
 export {
