@@ -1,9 +1,9 @@
-import { Dictionary, OptionApplier2, OptionDB, ParamTarget } from "../types";
+import { Dictionary, OptionApplier, OptionDB, ParamTarget } from "../types";
 
 function createDBOptionApplier<T extends ParamTarget>(
   name: string,
   db: OptionDB<T, Dictionary<any>>,
-): OptionApplier2<T> {
+): OptionApplier<T> {
 
   return {
 

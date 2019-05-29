@@ -1,6 +1,6 @@
-import { OptionApplier2, ParamTarget } from "../types";
+import { OptionApplier, ParamTarget } from "../types";
 
-const propOptionApplier: OptionApplier2<ParamTarget> = {
+const propOptionApplier: OptionApplier<ParamTarget> = {
 
   name: "prop",
 

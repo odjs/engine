@@ -1,31 +1,25 @@
 import eachProp from "./each-prop";
-import { isCallable } from "./type-check";
-import { Dictionary, NextApplierCaller, OptionApplier2, ParamTarget } from "./types";
+import { Dictionary, OptionApplier, ParamTarget } from "./types";
 
 export function applyOption<T extends ParamTarget>(
   value: unknown,
   name: string,
-  [target, appliers]: [T, Array<OptionApplier2<T>>],
+  [target, appliers]: [T, Array<OptionApplier<T>>],
 ): T {
 
-  let index = 0;
+  for (let i = 0, len = appliers.length; i < len; i++) {
 
-  const next: NextApplierCaller = () => {
+    const applier = appliers[i];
 
-    const applier = appliers[index++];
-
-    if (applier) {
-
-      if (!applier.test || applier.test.call(applier, name)) {
-        applier.apply(target, name, value);
-      } else {
-        next();
-      }
-
+    if (!applier) {
+      break;
     }
-  };
 
-  next();
+    if (!applier.test || applier.test.call(applier, name)) {
+      applier.apply.call(applier, target, name, value);
+      break;
+    }
+  }
 
   return target;
 
@@ -34,9 +28,9 @@ export function applyOption<T extends ParamTarget>(
 export function applyOptionObject<T extends ParamTarget>(
   target: T,
   options: Dictionary<unknown>,
-  appliers: Array<OptionApplier2<T>>,
+  appliers: Array<OptionApplier<T>>,
 ): T {
-  eachProp<[T, Array<OptionApplier2<T>>]>(
+  eachProp<[T, Array<OptionApplier<T>>]>(
     options,
     applyOption,
     [target, appliers],

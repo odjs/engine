@@ -7,26 +7,22 @@ export type Dictionary<V> = Record<string, V>;
 export type Falsy = false | 0 | "" | null | undefined;
 export type NotFalsy = true | number | string | object;
 
-// Applier Next
-
-export type NextApplierCaller = () => void;
-
 // Appliers
 
 export type ParamTarget = Dictionary<any>;
 
-export interface Applier2 {
+export interface Applier {
   name: string;
   test?: (this: this, ...args: any[]) => boolean;
   apply: (this: this, ...args: any[]) => void;
 }
 
-export interface ParamApplier2<T extends ParamTarget, P> extends Applier2 {
+export interface ParamApplier<T extends ParamTarget, P> extends Applier {
   test?: (this: this, param: unknown) => boolean;
   apply: (this: this, target: T, param: P) => void;
 }
 
-export interface OptionApplier2<T extends ParamTarget> extends Applier2 {
+export interface OptionApplier<T extends ParamTarget> extends Applier {
   test?: (this: this, name: string) => boolean;
   apply: (this: this, target: T, name: string, value: unknown) => void;
 }

@@ -1,7 +1,7 @@
 import { isCallable } from "../type-check";
-import { ParamApplier2, ParamTarget, PerformHandlerParam } from "../types";
+import { ParamApplier, ParamTarget, PerformHandlerParam } from "../types";
 
-const performParamApplier: ParamApplier2<ParamTarget, PerformHandlerParam<ParamTarget>> = {
+const performParamApplier: ParamApplier<ParamTarget, PerformHandlerParam<ParamTarget>> = {
 
   name: "perform",
 

@@ -1,6 +1,6 @@
-import { OptionApplier2 } from "../types";
+import { OptionApplier } from "../types";
 
-const eventOnOptionApplier: OptionApplier2<EventTarget> = {
+const eventOnOptionApplier: OptionApplier<EventTarget> = {
 
   name: "on-event",
 

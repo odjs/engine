@@ -1,11 +1,11 @@
 import { applyOptionObject } from "../apply-options";
 import { isObject } from "../type-check";
-import { OptionApplier2, ParamApplier2, ParamTarget } from "../types";
+import { OptionApplier, ParamApplier, ParamTarget } from "../types";
 
 function createOptionParamApplier<T extends ParamTarget>(
   name: string,
-  appliers: Array<OptionApplier2<T>>,
-): ParamApplier2<T, ParamTarget> {
+  appliers: Array<OptionApplier<T>>,
+): ParamApplier<T, ParamTarget> {
   return {
 
     name,

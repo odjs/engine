@@ -1,31 +1,25 @@
-import { isCallable } from "./type-check";
-import { NextApplierCaller, ParamApplier2, ParamTarget, PerformHandlerParam } from "./types";
+import { ParamApplier, ParamTarget, PerformHandlerParam } from "./types";
 
 export function applyParam<T extends ParamTarget>(
   target: T,
   param: unknown,
-  appliers: Array<ParamApplier2<T, PerformHandlerParam<T>>>,
+  appliers: Array<ParamApplier<T, any>>,
 ): T {
 
-  let index = 0;
+  for (let i = 0, len = appliers.length; i < len; i++) {
 
-  const next: NextApplierCaller = () => {
+    const applier = appliers[i];
 
-    const applier = appliers[index++];
-
-    if (applier) {
-
-      if (!applier.test || applier.test(param)) {
-        applier.apply(target, param as any);
-      } else {
-        next();
-      }
-
+    if (!applier) {
+      break;
     }
 
-  };
+    if (!applier.test || applier.test.call(applier, param)) {
+      applier.apply.call(applier, target, param);
+      break;
+    }
 
-  next();
+  }
 
   return target;
 
@@ -33,27 +27,30 @@ export function applyParam<T extends ParamTarget>(
 
 export function applyParamArgs<T extends ParamTarget>(
   target: T,
-  appliers: Array<ParamApplier2<T, PerformHandlerParam<T>>>,
+  appliers: Array<ParamApplier<T, PerformHandlerParam<T>>>,
   args: ArrayLike<any>,
   start?: number,
 ) {
-  start = start || 0;
-  for (let i = start, len = args.length; i < len; i++) {
+
+  for (let i = start || 0, len = args.length; i < len; i++) {
     applyParam(
       target,
       args[i],
       appliers,
     );
   }
+
   return target;
+
 }
 
 export function applyMultiParamArgs<T extends ParamTarget>(
   targets: T[],
-  appliers: Array<ParamApplier2<T, PerformHandlerParam<T>>>,
+  appliers: Array<ParamApplier<T, PerformHandlerParam<T>>>,
   args: ArrayLike<any>,
   start?: number,
 ): T[] {
+
   for (let i = 0, len = targets.length; i < len; i++) {
     applyParamArgs(
       targets[i],
@@ -62,5 +59,7 @@ export function applyMultiParamArgs<T extends ParamTarget>(
       start,
     );
   }
+
   return targets;
+
 }
