@@ -13,7 +13,7 @@ describe("option param applier", () => {
     target[name] = name;
   };
 
-  const paramAppliers = [createOptionParamApplier([
+  const paramAppliers = [createOptionParamApplier("", [
     optionApplier,
   ])];
 

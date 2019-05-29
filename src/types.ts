@@ -14,27 +14,21 @@ export type NextApplierCaller = () => void;
 // Appliers
 
 export type ParamTarget = Dictionary<any>;
-export type ParamApplier<T extends ParamTarget> = (target: T, param: unknown, next: NextApplierCaller) => void;
-export type OptionApplier<T extends ParamTarget, V> = (
-  target: T,
-  name: string,
-  value: V,
-  next: NextApplierCaller,
-) => void;
 
-// Appliers 2
-
-export interface Applier2<T extends ParamTarget> {
+export interface Applier2 {
   name: string;
-  test?: (param: unknown) => boolean;
+  test?: (this: this, ...args: any[]) => boolean;
+  apply: (this: this, ...args: any[]) => void;
 }
 
-export interface OptionApplier2<T extends ParamTarget, V> extends Applier2<T> {
-  apply: (target: T, name: string, value: V) => void;
+export interface ParamApplier2<T extends ParamTarget, P> extends Applier2 {
+  test?: (this: this, param: unknown) => boolean;
+  apply: (this: this, target: T, param: P) => void;
 }
 
-export interface ParamApplier2<T extends ParamTarget, P> extends Applier2<T> {
-  apply: (target: T, param: P) => void;
+export interface OptionApplier2<T extends ParamTarget> extends Applier2 {
+  test?: (this: this, name: string) => boolean;
+  apply: (this: this, target: T, name: string, value: unknown) => void;
 }
 
 // Option DB

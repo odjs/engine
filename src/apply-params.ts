@@ -1,39 +1,43 @@
 import { isCallable } from "./type-check";
-import { NextApplierCaller, ParamApplier, ParamApplier2, ParamTarget, PerformHandlerParam } from "./types";
+import { NextApplierCaller, ParamApplier2, ParamTarget, PerformHandlerParam } from "./types";
 
 export function applyParam<T extends ParamTarget>(
   target: T,
   param: unknown,
-  appliers: Array<ParamApplier<T> | ParamApplier2<T, PerformHandlerParam<T>>>,
+  appliers: Array<ParamApplier2<T, PerformHandlerParam<T>>>,
 ): T {
+
   let index = 0;
+
   const next: NextApplierCaller = () => {
+
     const applier = appliers[index++];
+
     if (applier) {
+
       if (isCallable(applier)) {
-        // supprt legacy applier
-        applier(
-          target,
-          param,
-          next,
-        );
-      } else {
-        // use modern applier
-        if (!applier.test || applier.test(param)) {
-          applier.apply(target, param as any);
-        } else {
-          next();
-        }
+        throw new Error("legacy function applier!");
       }
+
+      if (!applier.test || applier.test(param)) {
+        applier.apply(target, param as any);
+      } else {
+        next();
+      }
+
     }
+
   };
+
   next();
+
   return target;
+
 }
 
 export function applyParamArgs<T extends ParamTarget>(
   target: T,
-  appliers: Array<ParamApplier<T>>,
+  appliers: Array<ParamApplier2<T, PerformHandlerParam<T>>>,
   args: ArrayLike<any>,
   start?: number,
 ) {
@@ -50,7 +54,7 @@ export function applyParamArgs<T extends ParamTarget>(
 
 export function applyMultiParamArgs<T extends ParamTarget>(
   targets: T[],
-  appliers: Array<ParamApplier<T>>,
+  appliers: Array<ParamApplier2<T, PerformHandlerParam<T>>>,
   args: ArrayLike<any>,
   start?: number,
 ): T[] {
