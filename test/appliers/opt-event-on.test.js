@@ -14,13 +14,21 @@ describe("on-event option applier", () => {
         delete this.listeners[type];
       }
     },
+    dispatchEvent() {
+      return true;
+    },
   });
 
   test("should apply and stop if it's an on-event option", () => {
 
     const target = createMockEventTarget();
-    const mockOptionApplier = jest.fn();
-    /** @type { any[] } */
+
+    const apply = jest.fn();
+    const mockOptionApplier = {
+      name: "mock",
+      apply,
+    };
+
     const appliers = [eventOnOptionApplier, mockOptionApplier];
 
     const listener = () => { };
@@ -32,15 +40,20 @@ describe("on-event option applier", () => {
     applyOptionObject(target, options, appliers);
 
     expect(target.listeners.test).toBe(listener);
-    expect(mockOptionApplier).not.toHaveBeenCalled();
+    expect(apply).not.toHaveBeenCalled();
 
   });
 
   test("should call next applier if it's not a on-event option", () => {
 
     const target = createMockEventTarget();
-    const mockOptionApplier = jest.fn();
-    /** @type { any[] } */
+
+    const apply = jest.fn();
+    const mockOptionApplier = {
+      name: "mock",
+      apply,
+    };
+
     const appliers = [eventOnOptionApplier, mockOptionApplier];
 
     const listener = () => { };
@@ -52,7 +65,7 @@ describe("on-event option applier", () => {
 
     applyOptionObject(target, options, appliers);
 
-    expect(mockOptionApplier).toHaveBeenCalledTimes(2);
+    expect(apply).toHaveBeenCalledTimes(2);
 
   });
 
