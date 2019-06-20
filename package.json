@@ -24,6 +24,7 @@
     "param",
     "option",
     "applier",
+    "appliers",
     "engine"
   ],
   "dependencies": {
