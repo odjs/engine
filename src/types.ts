@@ -1,27 +1,16 @@
 export type AnyFunction = (this: any, ...args: any[]) => any;
-
-export type SingleOrMulti<T> = T | T[];
-
 export type Dictionary<V> = Record<string, V>;
-
-export type Falsy = false | 0 | "" | null | undefined;
-export type NotFalsy = true | number | string | object;
 
 // Appliers
 
-export type ParamTarget = Dictionary<any>;
+export type ParamTarget = Record<keyof any, any>;
 
-export interface Applier {
-  test?: (this: this, ...args: any[]) => boolean;
-  apply: (this: this, ...args: any[]) => void;
-}
-
-export interface ParamApplier<T extends ParamTarget, P> extends Applier {
+export interface ParamApplier<T extends ParamTarget, P> {
   test?: (this: this, param: unknown) => boolean;
   apply: (this: this, target: T, param: P) => void;
 }
 
-export interface OptionApplier<T extends ParamTarget> extends Applier {
+export interface OptionApplier<T extends ParamTarget> {
   test?: (this: this, name: string) => boolean;
   apply: (this: this, target: T, name: string, value: unknown) => void;
 }
