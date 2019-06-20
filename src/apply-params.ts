@@ -16,8 +16,8 @@ export function applyParam<T extends ParamTarget>(
       continue;
     }
 
-    if (!applier.test || applier.test.call(applier, param)) {
-      applier.apply.call(applier, target, param);
+    if (!applier.test || applier.test(param, target)) {
+      applier.apply(target, param);
       break;
     }
 

@@ -6,12 +6,12 @@ export type Dictionary<V> = Record<string, V>;
 export type ParamTarget = Record<keyof any, any>;
 
 export interface ParamApplier<T extends ParamTarget, P> {
-  test?: (this: this, param: unknown) => boolean;
+  test?: (this: this, param: unknown, target: T) => boolean;
   apply: (this: this, target: T, param: P) => void;
 }
 
 export interface OptionApplier<T extends ParamTarget> {
-  test?: (this: this, name: string) => boolean;
+  test?: (this: this, name: string, target: T) => boolean;
   apply: (this: this, target: T, name: string, value: unknown) => void;
 }
 

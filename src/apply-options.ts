@@ -12,13 +12,14 @@ export function applyOption<T extends ParamTarget>(
     const applier = appliers[i];
 
     if (!applier) {
+      continue;
+    }
+
+    if (!applier.test || applier.test(name, target)) {
+      applier.apply(target, name, value);
       break;
     }
 
-    if (!applier.test || applier.test.call(applier, name)) {
-      applier.apply.call(applier, target, name, value);
-      break;
-    }
   }
 
   return target;
@@ -30,10 +31,13 @@ export function applyOptionObject<T extends ParamTarget>(
   options: Dictionary<unknown>,
   appliers: Array<OptionApplier<T>>,
 ): T {
+
   eachProp<[T, Array<OptionApplier<T>>]>(
     options,
     applyOption,
     [target, appliers],
   );
+
   return target;
+
 }
