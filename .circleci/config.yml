@@ -10,17 +10,17 @@ executors:
       - image: circleci/node:10
     working_directory: &working_directory ~/repo
 
-# commands:
+commands:
 
-#   npm_publish:
-#     steps:
-#       - run:
-#           name: Login to npm
-#           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-#       - run:
-#           name: Publish to npm
-#           # specify access for scoped package
-#           command: npm publish --access public
+  npm_publish:
+    steps:
+      - run:
+          name: Authenticate
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish to npm
+          # specify access for scoped package
+          command: npm publish --access public
 
 jobs:
 
@@ -57,11 +57,11 @@ jobs:
       - codecov/upload:
           file: coverage/*.json
 
-  # publish_pkg:
-  #   executor: node
-  #   steps:
-  #     - attach_workspace: *attach_workspace
-  #     - npm_publish
+  publish_pkg:
+    executor: node
+    steps:
+      - attach_workspace: *attach_workspace
+      - npm_publish
 
 workflows:
   version: 2
@@ -83,12 +83,12 @@ workflows:
             branches:
               only: /master/
 
-      # - publish_pkg:
-      #     context: NPM
-      #     requires:
-      #       - unit_test
-      #     filters:
-      #       tags:
-      #         only: /^v\d+\.\d+\.\d+$/
-      #       branches:
-      #         ignore: /.*/
+      - publish_pkg:
+          context: NPM
+          requires:
+            - unit_test
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
