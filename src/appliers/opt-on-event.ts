@@ -2,8 +2,6 @@ import { OptionApplier } from "../types";
 
 const eventOnOptionApplier: OptionApplier<EventTarget> = {
 
-  name: "on-event",
-
   test: (optionName) => /^on\w+$/.test(optionName),
 
   apply(target, optionName, value) {

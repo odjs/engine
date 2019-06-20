@@ -3,8 +3,6 @@ import { ParamApplier, ParamTarget, PerformHandlerParam } from "../types";
 
 const performParamApplier: ParamApplier<ParamTarget, PerformHandlerParam<ParamTarget>> = {
 
-  name: "perform",
-
   test: (param) => isCallable<PerformHandlerParam<ParamTarget>>(param),
 
   apply(target, param) {

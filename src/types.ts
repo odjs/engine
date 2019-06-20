@@ -12,7 +12,6 @@ export type NotFalsy = true | number | string | object;
 export type ParamTarget = Dictionary<any>;
 
 export interface Applier {
-  name: string;
   test?: (this: this, ...args: any[]) => boolean;
   apply: (this: this, ...args: any[]) => void;
 }
