@@ -9,8 +9,7 @@ module.exports = {
 
   cacheDirectory: ".cache/jest",
 
-  // for now coverage is disabled on ci
-  collectCoverage: !CI,
+  collectCoverage: true,
   collectCoverageFrom: [
     main,
   ],

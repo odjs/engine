@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@1.0.5
+
 executors:
 
   node:
@@ -11,11 +14,9 @@ executors:
 
 #   npm_publish:
 #     steps:
-
 #       - run:
 #           name: Login to npm
 #           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-
 #       - run:
 #           name: Publish to npm
 #           # specify access for scoped package
@@ -26,52 +27,40 @@ jobs:
   unit_test:
     executor: node
     steps:
-
       - checkout
-
       - restore_cache:
           keys:
             - v1-dep-odjs-engine-{{ checksum "package-lock.json" }}
             - v1-dep-odjs-engine-
-
       - run:
           name: Install Dependencies
           command: npm install
-
       - save_cache:
           key: v1-dep-odjs-engine-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-
       - run:
           name: Build
           command: npm run build
-
       - run:
           name: Run Tests
           command: npm test
+      - persist_to_workspace:
+          root: *working_directory
+          paths: .
 
-      # - persist_to_workspace:
-      #     root: *working_directory
-      #     paths: .
-
-  # upload_coverage:
-  #   executor: node
-  #   steps:
-
-  #     - attach_workspace:
-  #         at: *working_directory
-
-  #     - codecov/upload:
-  #         file: coverage/*.json
+  upload_coverage:
+    executor: node
+    steps:
+      - attach_workspace: &attach_workspace
+          at: *working_directory
+      - codecov/upload:
+          file: coverage/*.json
 
   # publish_pkg:
   #   executor: node
   #   steps:
-
-  #     - attach_workspace:
-  #         at: *working_directory
-
+  #     - attach_workspace: *attach_workspace
   #     - npm_publish
 
 workflows:
@@ -80,20 +69,19 @@ workflows:
   workflow:
     jobs:
 
-      - unit_test
-      # - unit_test:
-          # filters:
-          #   tags:
-          #     only: /.*/
-          #   branches:
-          #     only: /.*/
+      - unit_test:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
 
-      # - upload_coverage:
-      #     requires:
-      #       - unit_test
-      #     filters:
-      #       branches:
-      #         ignore: /greenkeeper/
+      - upload_coverage:
+          requires:
+            - unit_test
+          filters:
+            branches:
+              only: /master/
 
       # - publish_pkg:
       #     context: NPM
