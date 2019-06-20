@@ -1,7 +1,5 @@
 // Type Check
 export { isNull, isObject, isString, isNumber, isCallable } from "./type-check";
-// @ts-ignore
-export { default as isArray } from "isarray";
 
 // Tools
 export { default as eachProp } from "./each-prop";
