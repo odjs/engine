@@ -1,4 +1,6 @@
-import { ParamApplier, ParamTarget, PerformHandlerParam } from "./types";
+import createOptionParamApplier from "./appliers/param-create-opt";
+import performParamApplier from "./appliers/param-perform";
+import { OptionApplier, ParamApplier, ParamTarget, PerformHandlerParam } from "./types";
 
 export function applyParam<T extends ParamTarget>(
   target: T,
@@ -53,6 +55,45 @@ export function applyMultiParamArgs<T extends ParamTarget>(
 
   for (let i = 0, len = targets.length; i < len; i++) {
     applyParamArgs(
+      targets[i],
+      appliers,
+      args,
+      start,
+    );
+  }
+
+  return targets;
+
+}
+
+export function applyPerforOptionParamArgs<T extends ParamTarget>(
+  target: T,
+  appliers: Array<OptionApplier<T>>,
+  args: ArrayLike<any>,
+  start?: number,
+): T {
+
+  return applyParamArgs<T>(
+    target,
+    [
+      performParamApplier,
+      createOptionParamApplier<T>(appliers),
+    ] as Array<ParamApplier<T, any>>,
+    args,
+    start,
+  );
+
+}
+
+export function applyMultiPerforOptionParamArgs<T extends ParamTarget>(
+  targets: T[],
+  appliers: Array<OptionApplier<T>>,
+  args: ArrayLike<any>,
+  start?: number,
+) {
+
+  for (let i = 0, len = targets.length; i < len; i++) {
+    applyPerforOptionParamArgs(
       targets[i],
       appliers,
       args,

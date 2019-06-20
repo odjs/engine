@@ -18,6 +18,8 @@ export {
   applyParam,
   applyParamArgs,
   applyMultiParamArgs,
+  applyPerforOptionParamArgs,
+  applyMultiPerforOptionParamArgs,
 } from "./apply-params";
 export {
   applyOption,
