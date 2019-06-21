@@ -5,11 +5,13 @@
   "main": "dist/core.cjs.js",
   "module": "dist/core.es.js",
   "browser": "dist/core.umd.js",
-  "typings": "types",
   "bundlib": {
     "name": "odjs",
-    "id": "odjs"
+    "id": "odjs",
+    "min": "browser"
   },
+  "types": "types/index.d.ts",
+  "typings": "types/index.d.ts",
   "scripts": {
     "lint": "tslint src/**/*.ts",
     "clean": "rm -rf .cache dist types coverage",
