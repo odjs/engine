@@ -50,11 +50,11 @@
   "author": "Manuel Fernandez <manferlo81@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manferlo81/odjs-engine.git"
+    "url": "git+https://github.com/odjs/engine.git"
   },
   "bugs": {
-    "url": "https://github.com/manferlo81/odjs-engine/issues"
+    "url": "https://github.com/odjs/engine/issues"
   },
-  "homepage": "https://github.com/manferlo81/odjs-engine#readme",
+  "homepage": "https://github.com/odjs/engine#readme",
   "license": "MIT"
 }
