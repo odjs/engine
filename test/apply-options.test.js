@@ -4,27 +4,26 @@ const { applyOption, applyOptionObject, propOptionApplier } = require("..");
 
 describe("apply options", () => {
 
-  const createMockTestOptionApplier = (opName) => ({
-    name: "mock",
+  const createMockOptionApplier = (opName) => ({
     test: (optionName) => (optionName === opName),
     apply: jest.fn((target, name, value) => {
-      target.test = value;
+      target.mock = { name, value };
     }),
   });
 
-  test("should apply single option and stop", () => {
+  test("should apply single option and stop if match", () => {
 
     const target = {};
 
-    const mockOptionApplier1 = createMockTestOptionApplier("test");
-    const mockOptionApplier2 = createMockTestOptionApplier("cancel");
-    const appliers = [mockOptionApplier1, mockOptionApplier2];
+    const mockOptionApplierOnTest = createMockOptionApplier("test");
+    const mockOptionApplierOnCancel = createMockOptionApplier("cancel");
+    const appliers = [mockOptionApplierOnTest, mockOptionApplierOnCancel];
 
     applyOption(10, "test", [target, appliers]);
 
-    expect(target).toEqual({ test: 10 });
-    expect(mockOptionApplier1.apply).toHaveBeenCalledTimes(1);
-    expect(mockOptionApplier2.apply).not.toHaveBeenCalled();
+    expect(target).toEqual({ mock: { name: "test", value: 10 } });
+    expect(mockOptionApplierOnTest.apply).toHaveBeenCalledTimes(1);
+    expect(mockOptionApplierOnCancel.apply).not.toHaveBeenCalled();
 
   });
 
@@ -32,15 +31,15 @@ describe("apply options", () => {
 
     const target = {};
 
-    const mockOptionApplier1 = createMockTestOptionApplier("test");
-    const mockOptionApplier2 = createMockTestOptionApplier("cancel");
-    const appliers = [mockOptionApplier1, mockOptionApplier2];
+    const mockOptionApplierOnTest = createMockOptionApplier("test");
+    const mockOptionApplierOnCancel = createMockOptionApplier("cancel");
+    const appliers = [mockOptionApplierOnTest, mockOptionApplierOnCancel];
 
     applyOption(10, "cancel", [target, appliers]);
 
-    expect(target).toEqual({ test: 10 });
-    expect(mockOptionApplier1.apply).not.toHaveBeenCalled();
-    expect(mockOptionApplier2.apply).toHaveBeenCalledTimes(1);
+    expect(target).toEqual({ mock: { name: "cancel", value: 10 } });
+    expect(mockOptionApplierOnTest.apply).not.toHaveBeenCalled();
+    expect(mockOptionApplierOnCancel.apply).toHaveBeenCalledTimes(1);
 
   });
 

@@ -1,15 +1,24 @@
 // @ts-check
 
-const { applyParam, applyParamArgs, applyMultiParamArgs, performParamApplier } = require("..");
+const {
+  applyParam,
+  applyParamArgs,
+  applyMultiParamArgs,
+  applyPerforOptionParamArgs,
+  applyMultiPerforOptionParamArgs,
+  performParamApplier,
+  propOptionApplier,
+} = require("..");
 
 describe("apply params", () => {
 
   const createMockParamApplier = () => ({
-    name: "mock",
-    apply: jest.fn(),
+    apply: jest.fn((target, param) => {
+      target.mock = param;
+    }),
   });
 
-  test("should apply single param and stop", () => {
+  test("should apply single param and stop if match", () => {
 
     const target = {};
 
@@ -38,37 +47,83 @@ describe("apply params", () => {
 
     applyParam(target, param, appliers);
 
-    expect(target).toEqual({});
+    expect(target).toEqual({ mock: param });
     expect(mockParamApplier.apply).toHaveBeenCalledTimes(1);
 
   });
 
-  test("apply multiple params", () => {
+  test("should apply multiple params on single target", () => {
 
     const target = {};
     const appliers = [performParamApplier];
-    const args = [(target) => {
-      target.test = 10;
-    }];
+    const params = [
+      (target) => {
+        target.key1 = 10;
+      },
+      (target) => {
+        target.key2 = 20;
+      },
+    ];
 
-    applyParamArgs(target, appliers, args, 0);
+    applyParamArgs(target, appliers, params, 0);
 
-    expect(target).toEqual({ test: 10 });
+    expect(target).toEqual({ key1: 10, key2: 20 });
 
   });
 
-  test("apply multiple params to multiple target", () => {
+  test("should apply multiple params on multiple targets", () => {
 
     const targets = [{}, {}];
     const appliers = [performParamApplier];
-    const args = [(target) => {
-      target.test = 10;
-    }];
+    const params = [
+      (target) => {
+        target.key1 = 10;
+      },
+      (target) => {
+        target.key2 = 20;
+      },
+    ];
 
-    applyMultiParamArgs(targets, appliers, args, 0);
+    applyMultiParamArgs(targets, appliers, params, 0);
 
     targets.forEach((target) => {
-      expect(target).toEqual({ test: 10 });
+      expect(target).toEqual({ key1: 10, key2: 20 });
+    });
+
+  });
+
+  test("should apply perform/option params on single target", () => {
+
+    const target = {};
+    const appliers = [propOptionApplier];
+    const params = [
+      (target) => {
+        target.key1 = 10;
+      },
+      { key2: 20 },
+    ];
+
+    applyPerforOptionParamArgs(target, appliers, params, 0);
+
+    expect(target).toEqual({ key1: 10, key2: 20 });
+
+  });
+
+  test("should apply perform/option params on multiple targets", () => {
+
+    const targets = [{}, {}];
+    const appliers = [propOptionApplier];
+    const params = [
+      (target) => {
+        target.key1 = 10;
+      },
+      { key2: 20 },
+    ];
+
+    applyMultiPerforOptionParamArgs(targets, appliers, params, 0);
+
+    targets.forEach((target) => {
+      expect(target).toEqual({ key1: 10, key2: 20 });
     });
 
   });
