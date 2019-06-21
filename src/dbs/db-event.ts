@@ -2,32 +2,30 @@ import eachProp from "../each-prop";
 import { addEventHelper, remEventHelper } from "../helpers";
 import { Dictionary, EventObject, Listener, OptionDB } from "../types";
 
-type Target = EventTarget;
-
-interface IEventOptionMap<T extends Target, M extends Dictionary<Event>> {
+export interface EventOptionMap<T extends EventTarget, M extends Dictionary<Event>> {
   events: EventObject<T, M> & Dictionary<Listener<T, Event>>;
   on: EventObject<T, M> & Dictionary<Listener<T, Event>>;
   off: EventObject<T, M> & Dictionary<Listener<T, Event>>;
 }
 
-function events<T extends Target, M extends Dictionary<Event>>(
+function events<T extends EventTarget, M extends Dictionary<Event>>(
   target: T,
   value: EventObject<T, M> & Dictionary<Listener<T, Event>>,
 ) {
-  eachProp<Target>(
+  eachProp<EventTarget>(
     value,
     addEventHelper,
     target,
   );
 }
 
-const eventOptionDB: OptionDB<Target, IEventOptionMap<Target, Dictionary<Event>>> = {
+export const eventOptionDB: OptionDB<EventTarget, EventOptionMap<EventTarget, Dictionary<Event>>> = {
 
   events,
   on: events,
 
   off(target, value) {
-    eachProp<Target>(
+    eachProp<EventTarget>(
       value,
       remEventHelper,
       target,
@@ -35,5 +33,3 @@ const eventOptionDB: OptionDB<Target, IEventOptionMap<Target, Dictionary<Event>>
   },
 
 };
-
-export default eventOptionDB;

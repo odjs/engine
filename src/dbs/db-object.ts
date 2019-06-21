@@ -2,14 +2,12 @@ import eachProp from "../each-prop";
 import { setPropHelper } from "../helpers";
 import { Dictionary, OptionDB, ParamTarget, PerformHandlerParam } from "../types";
 
-type Target = ParamTarget;
-
-interface IObjectOptionMap<T extends Target> {
+export interface ObjectOptionMap<T extends ParamTarget> {
   prop: Dictionary<any>;
   perform: PerformHandlerParam<T>;
 }
 
-const objectOptionDB: OptionDB<Target, IObjectOptionMap<Target>> = {
+export const objectOptionDB: OptionDB<ParamTarget, ObjectOptionMap<ParamTarget>> = {
 
   prop(target, props) {
     eachProp(
@@ -27,5 +25,3 @@ const objectOptionDB: OptionDB<Target, IObjectOptionMap<Target>> = {
   },
 
 };
-
-export default objectOptionDB;

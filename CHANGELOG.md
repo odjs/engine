@@ -1,5 +1,9 @@
 # @odjs/engine changelog
 
+## 0.0.4 (21-JUN-2019)
+
+* exposed dbs & option maps
+
 ## 0.0.3 (21-JUN-2019)
 
 * exposed property & event helpers
