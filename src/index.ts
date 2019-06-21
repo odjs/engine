@@ -4,6 +4,8 @@ export { isNull, isObject, isString, isNumber, isCallable } from "./type-check";
 // Tools
 export { default as eachProp } from "./each-prop";
 
+export { setPropHelper, addEventHelper, remEventHelper } from "./helpers";
+
 // Appliers
 export { default as createDBOptionApplier } from "./appliers/opt-create-db";
 export { default as eventDBOptionApplier } from "./appliers/opt-event-db";

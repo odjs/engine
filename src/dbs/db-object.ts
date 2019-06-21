@@ -1,5 +1,5 @@
 import eachProp from "../each-prop";
-import { setPropertyHelper } from "../helpers";
+import { setPropHelper } from "../helpers";
 import { Dictionary, OptionDB, ParamTarget, PerformHandlerParam } from "../types";
 
 type Target = ParamTarget;
@@ -14,7 +14,7 @@ const objectOptionDB: OptionDB<Target, IObjectOptionMap<Target>> = {
   prop(target, props) {
     eachProp(
       props,
-      setPropertyHelper,
+      setPropHelper,
       target,
     );
   },

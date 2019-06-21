@@ -1,5 +1,5 @@
 import eachProp from "../each-prop";
-import { addEventHelper, removeEventHelper } from "../helpers";
+import { addEventHelper, remEventHelper } from "../helpers";
 import { Dictionary, EventObject, Listener, OptionDB } from "../types";
 
 type Target = EventTarget;
@@ -29,7 +29,7 @@ const eventOptionDB: OptionDB<Target, IEventOptionMap<Target, Dictionary<Event>>
   off(target, value) {
     eachProp<Target>(
       value,
-      removeEventHelper,
+      remEventHelper,
       target,
     );
   },

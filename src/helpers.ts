@@ -1,6 +1,6 @@
 import { Listener, ParamTarget } from "./types";
 
-export function setPropertyHelper(value: any, name: string, target: ParamTarget) {
+export function setPropHelper(value: any, name: string, target: ParamTarget) {
   target[name] = value;
 }
 
@@ -12,7 +12,7 @@ export function addEventHelper(listener: Listener<EventTarget, Event>, type: str
   );
 }
 
-export function removeEventHelper(listener: Listener<EventTarget, Event>, type: string, target: EventTarget) {
+export function remEventHelper(listener: Listener<EventTarget, Event>, type: string, target: EventTarget) {
   target.removeEventListener(
     type,
     listener,
