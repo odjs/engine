@@ -1,5 +1,9 @@
 # @odjs/engine changelog
 
+## 0.0.3 (21-JUN-2019)
+
+* exposed property & event helpers
+
 ## 0.0.2 (20-JUN-2019)
 
 * added common perform/options apply functions
