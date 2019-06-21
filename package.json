@@ -1,6 +1,6 @@
 {
   "name": "@odjs/engine",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A param/option applier engine.",
   "main": "dist/engine.cjs.js",
   "module": "dist/engine.es.js",
