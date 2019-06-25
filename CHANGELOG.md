@@ -5,6 +5,7 @@
 
 * dependencies updated
 * added `codecov` badge
+* added `snyk` badge
 
 ## 0.0.4
 *21-JUN-2019*
