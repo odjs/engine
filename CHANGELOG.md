@@ -3,6 +3,7 @@
 ## 0.0.5
 *25-JUN-2019*
 
+* dependencies updated
 * added `codecov` badge
 
 ## 0.0.4
