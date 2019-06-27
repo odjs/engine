@@ -4,6 +4,10 @@
 
 A param/option applier engine.
 
+## Usage
+
+***...COMING SOON...***
+
 ## License
 
 [MIT](LICENSE) &copy; [Manuel Fernández](https://github.com/manferlo81)
