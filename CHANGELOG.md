@@ -6,6 +6,10 @@
 * dependencies updated
 * added `codecov` badge
 * added `snyk` badge
+* added `greenkeeper` badge
+* added `version` badge
+* added `types` badge
+* added `license` badge
 
 ## 0.0.4
 *21-JUN-2019*
