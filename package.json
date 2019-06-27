@@ -14,7 +14,7 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "lint": "tslint src/**/*.ts",
-    "clean": "rm -rf .cache dist types coverage",
+    "clean": "rm -rf node_modules/.cache/bundlib node_modules/.cache/jest dist types coverage",
     "dev": "bundlib -dw",
     "build": "npm run lint && bundlib -d",
     "test": "jest --colors",
