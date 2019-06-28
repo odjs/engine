@@ -2,7 +2,7 @@
 export { isNull, isObject, isString, isNumber, isCallable } from "./type-check";
 
 // Tools
-export { default as eachProp } from "./each-prop";
+export { eachProp, EachPropCallback, EachPropCallbackParam } from "./each-prop";
 
 export { setPropHelper, addEventHelper, remEventHelper } from "./helpers";
 

@@ -1,4 +1,4 @@
-import eachProp from "../each-prop";
+import { eachProp } from "../each-prop";
 import { setPropHelper } from "../helpers";
 import { Dictionary, OptionDB, ParamTarget, PerformHandlerParam } from "../types";
 

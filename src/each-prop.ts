@@ -1,17 +1,20 @@
 import { Dictionary } from "./types";
 
-function eachProp<V = any, TH = any>(
+export type EachPropCallback<V = any, TH = any> = (this: TH, value: V, key: string) => void;
+export type EachPropCallbackParam<P, V = any, TH = any> = (this: TH, value: V, key: string, param: P) => void;
+
+export function eachProp<V = any, TH = any>(
   this: TH,
   object: Dictionary<V>,
-  callback: (this: TH, value: V, key: string) => any,
+  callback: EachPropCallback<V, TH>,
 ): void;
-function eachProp<P, V = any, TH = any>(
+export function eachProp<P, V = any, TH = any>(
   this: TH,
   object: Dictionary<V>,
-  callback: (this: TH, value: V, key: string, param: P) => any,
+  callback: EachPropCallbackParam<P, V, TH>,
   param: P,
 ): void;
-function eachProp<P, V = any, TH = any>(
+export function eachProp<P, V = any, TH = any>(
   this: TH,
   object: Dictionary<V>,
   callback: (this: TH, value: V, key: string, param?: P) => any,
@@ -23,5 +26,3 @@ function eachProp<P, V = any, TH = any>(
     }
   }
 }
-
-export default eachProp;

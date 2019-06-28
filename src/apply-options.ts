@@ -1,4 +1,4 @@
-import eachProp from "./each-prop";
+import { eachProp } from "./each-prop";
 import { Dictionary, OptionApplier, ParamTarget } from "./types";
 
 export function applyOption<T extends ParamTarget>(

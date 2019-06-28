@@ -1,4 +1,4 @@
-import eachProp from "../each-prop";
+import { eachProp } from "../each-prop";
 import { addEventHelper, remEventHelper } from "../helpers";
 import { Dictionary, EventObject, Listener, OptionDB } from "../types";
 
