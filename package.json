@@ -2,24 +2,6 @@
   "name": "@odjs/engine",
   "version": "0.0.5",
   "description": "A param/option applier engine.",
-  "main": "dist/engine.cjs.js",
-  "module": "dist/engine.es.js",
-  "browser": "dist/engine.umd.js",
-  "bundlib": {
-    "name": "odjs",
-    "id": "odjs",
-    "min": "browser"
-  },
-  "types": "types/index.d.ts",
-  "typings": "types/index.d.ts",
-  "scripts": {
-    "lint": "tslint src/**/*.ts",
-    "clean": "rm -rf node_modules/.cache/bundlib node_modules/.cache/jest dist types coverage",
-    "dev": "bundlib -dw",
-    "build": "npm run lint && bundlib -d",
-    "test": "jest --colors",
-    "preversion": "npm run clean && npm run build && npm test"
-  },
   "keywords": [
     "odjs",
     "core",
@@ -29,6 +11,24 @@
     "appliers",
     "engine"
   ],
+  "main": "dist/engine.cjs.js",
+  "module": "dist/engine.es.js",
+  "browser": "dist/engine.umd.js",
+  "types": "types/index.d.ts",
+  "typings": "types/index.d.ts",
+  "bundlib": {
+    "name": "odjs",
+    "id": "odjs",
+    "min": "browser"
+  },
+  "scripts": {
+    "lint": "tslint src/**/*.ts",
+    "clean": "rm -rf node_modules/.cache/bundlib node_modules/.cache/jest dist types coverage",
+    "dev": "bundlib -dw",
+    "build": "npm run lint && bundlib -d",
+    "test": "jest --colors",
+    "preversion": "npm run clean && npm run build && npm test"
+  },
   "dependencies": {
     "isarray": "^2.0.4"
   },
