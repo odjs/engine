@@ -8,7 +8,7 @@ executors:
   node:
     docker:
       - image: circleci/node:10
-    working_directory: &working_directory ~/repo
+    working_directory: &working_directory ~/odjs-engine
 
 commands:
 
@@ -16,7 +16,7 @@ commands:
     steps:
       - run:
           name: Authenticate
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: Publish to npm
           # specify access for scoped package
@@ -30,13 +30,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dep-odjs-engine-{{ checksum "package-lock.json" }}
-            - v1-dep-odjs-engine-
+            - v2-dep-odjs-engine-{{ checksum "package.json" }}
+            - v2-dep-odjs-engine-
       - run:
           name: Install Dependencies
           command: npm install
       - save_cache:
-          key: v1-dep-odjs-engine-{{ checksum "package-lock.json" }}
+          key: v2-dep-odjs-engine-{{ checksum "package.json" }}
           paths:
             - node_modules
       - run:
