@@ -2,7 +2,7 @@
 
 ## 0.0.6
 
-***13-JUL-2019***
+***26-JUL-2019***
 
 * dependencies updated
 * remove unnecessary dependencies
