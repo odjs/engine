@@ -1,10 +1,8 @@
-// @ts-check
-
-const { applyOption, applyOptionObject, propOptionApplier } = require("..");
+import { applyOption, applyOptionObject, OptionApplier, propOptionApplier } from "../src";
 
 describe("apply options", () => {
 
-  const createMockOptionApplier = (opName) => ({
+  const createMockOptionApplier = (opName: string): OptionApplier<Record<string, any>> => ({
     test: (optionName) => (optionName === opName),
     apply: jest.fn((target, name, value) => {
       target.mock = { name, value };
@@ -56,5 +54,3 @@ describe("apply options", () => {
   });
 
 });
-
-

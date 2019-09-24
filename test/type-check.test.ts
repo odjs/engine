@@ -1,8 +1,6 @@
-// @ts-check
+import { isCallable, isNull, isNumber, isObject, isString } from "../src";
 
-const { isNull, isString, isNumber, isObject } = require("..");
-
-function runTest(validValues, invalidValues, method) {
+function runTest(validValues: any[], invalidValues: any[], method: (value: any) => boolean) {
 
   const values = [...validValues, ...invalidValues];
   const expected = [...validValues.map(() => true), ...invalidValues.map(() => false)];
@@ -13,6 +11,7 @@ function runTest(validValues, invalidValues, method) {
 
 }
 
+// tslint:disable-next-line: no-construct
 const objects = [{}, new Object(), new String(), new Number(), new Boolean()];
 const arrays = [[], new Array()];
 const objectsAndArrays = [...objects, ...arrays];
@@ -20,6 +19,7 @@ const strings = ["", "string"];
 const booleans = [true, false, !0, !1];
 const numbers = [0, 1, 1 / 0, Number({}), NaN];
 const nulls = [null, undefined, void 0];
+const functions = [describe, () => null, function func() { /**/ }];
 
 describe("type check", () => {
 
@@ -30,6 +30,7 @@ describe("type check", () => {
       ...booleans,
       ...numbers,
       ...objectsAndArrays,
+      ...functions,
     ], isNull);
 
   });
@@ -41,6 +42,7 @@ describe("type check", () => {
       ...numbers,
       ...objectsAndArrays,
       ...nulls,
+      ...functions,
     ], isString);
 
   });
@@ -52,6 +54,7 @@ describe("type check", () => {
       ...booleans,
       ...objectsAndArrays,
       ...nulls,
+      ...functions,
     ], isNumber);
 
   });
@@ -63,7 +66,20 @@ describe("type check", () => {
       ...booleans,
       ...numbers,
       ...nulls,
+      ...functions,
     ], isObject);
+
+  });
+
+  test("should check function type", () => {
+
+    runTest(functions, [
+      ...strings,
+      ...booleans,
+      ...numbers,
+      ...objectsAndArrays,
+      ...nulls,
+    ], isCallable);
 
   });
 

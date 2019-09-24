@@ -1,23 +1,7 @@
-// @ts-check
-
-const { eventOnOptionApplier, applyOptionObject } = require("../..");
+import { applyOptionObject, eventOnOptionApplier } from "../../src";
+import { createMockEventTarget } from "../helpers/event-target";
 
 describe("on-event option applier", () => {
-
-  const createMockEventTarget = () => ({
-    listeners: {},
-    addEventListener(type, listener) {
-      this.listeners[type] = listener;
-    },
-    removeEventListener(type, listener) {
-      if (this.listeners[type] === listener) {
-        delete this.listeners[type];
-      }
-    },
-    dispatchEvent() {
-      return true;
-    },
-  });
 
   test("should apply and stop if it's an on-event option", () => {
 
@@ -31,7 +15,7 @@ describe("on-event option applier", () => {
 
     const appliers = [eventOnOptionApplier, mockOptionApplier];
 
-    const listener = () => { };
+    const listener = () => { /**/ };
 
     const options = {
       ontest: listener,
@@ -56,7 +40,7 @@ describe("on-event option applier", () => {
 
     const appliers = [eventOnOptionApplier, mockOptionApplier];
 
-    const listener = () => { };
+    const listener = () => { /**/ };
 
     const options = {
       test1: listener,
@@ -70,4 +54,3 @@ describe("on-event option applier", () => {
   });
 
 });
-

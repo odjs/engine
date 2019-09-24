@@ -1,30 +1,14 @@
-// @ts-check
-
-const { eventDBOptionApplier, applyOptionObject } = require("../..");
+import { applyOptionObject, eventDBOptionApplier } from "../../src";
+import { createMockEventTarget } from "../helpers/event-target";
 
 describe("event db option applier", () => {
-
-  const createMockEventTarget = () => ({
-    listeners: {},
-    addEventListener(type, listener) {
-      this.listeners[type] = listener;
-    },
-    removeEventListener(type, listener) {
-      if (this.listeners[type] === listener) {
-        delete this.listeners[type];
-      }
-    },
-    dispatchEvent() {
-      return true;
-    },
-  });
 
   test("should apply event options", () => {
 
     const target = createMockEventTarget();
     const appliers = [eventDBOptionApplier];
 
-    const listener = () => { };
+    const listener = () => { /**/ };
     const optionObject = {
       events: {
         load: listener,
@@ -42,7 +26,7 @@ describe("event db option applier", () => {
     const target = createMockEventTarget();
     const appliers = [eventDBOptionApplier];
 
-    const listener = () => { };
+    const listener = () => { /**/ };
     const optionObject = {
       on: {
         load: listener,
@@ -60,7 +44,7 @@ describe("event db option applier", () => {
     const target = createMockEventTarget();
     const appliers = [eventDBOptionApplier];
 
-    const listener = () => { };
+    const listener = () => { /**/ };
 
     applyOptionObject(target, {
       on: {
@@ -81,4 +65,3 @@ describe("event db option applier", () => {
   });
 
 });
-

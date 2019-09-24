@@ -1,6 +1,4 @@
-// @ts-check
-
-const { objectDBOptionApplier, applyOptionObject } = require("../..");
+import { applyOptionObject, objectDBOptionApplier } from "../../src";
 
 describe("object db option applier", () => {
 
@@ -40,4 +38,3 @@ describe("object db option applier", () => {
   });
 
 });
-

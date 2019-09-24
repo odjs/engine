@@ -1,6 +1,4 @@
-// @ts-check
-
-const { applyParam, applyParamArgs, applyMultiParamArgs, applyOption, applyOptionObject } = require("..");
+import { applyMultiParamArgs, applyOption, applyOptionObject, applyParam, applyParamArgs } from "../src";
 
 describe("return type", () => {
 

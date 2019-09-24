@@ -1,6 +1,4 @@
-// @ts-check
-
-const { applyParam, applyParamArgs, applyMultiParamArgs, performParamApplier } = require("..");
+import { applyMultiParamArgs, applyParam, applyParamArgs, performParamApplier } from "../src";
 
 describe("perform param applier", () => {
 

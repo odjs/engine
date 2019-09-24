@@ -1,14 +1,12 @@
-// @ts-check
-
-const {
+import {
+  applyMultiParamArgs,
+  applyMultiPerforOptionParamArgs,
   applyParam,
   applyParamArgs,
-  applyMultiParamArgs,
   applyPerforOptionParamArgs,
-  applyMultiPerforOptionParamArgs,
   performParamApplier,
   propOptionApplier,
-} = require("..");
+} from "../src";
 
 describe("apply params", () => {
 
@@ -20,54 +18,54 @@ describe("apply params", () => {
 
   test("should apply single param and stop if match", () => {
 
-    const target = {};
+    const theTarget = {};
 
-    const param = (target) => {
+    const param = (target: Record<string, any>) => {
       target.test = 10;
     };
 
     const mockParamApplier = createMockParamApplier();
     const appliers = [performParamApplier, mockParamApplier];
 
-    applyParam(target, param, appliers);
+    applyParam(theTarget, param, appliers);
 
-    expect(target).toEqual({ test: 10 });
+    expect(theTarget).toEqual({ test: 10 });
     expect(mockParamApplier.apply).not.toHaveBeenCalled();
 
   });
 
   test("should call next applier if not match", () => {
 
-    const target = {};
+    const theTarget = {};
 
     const param = {};
 
     const mockParamApplier = createMockParamApplier();
     const appliers = [performParamApplier, mockParamApplier];
 
-    applyParam(target, param, appliers);
+    applyParam(theTarget, param, appliers);
 
-    expect(target).toEqual({ mock: param });
+    expect(theTarget).toEqual({ mock: param });
     expect(mockParamApplier.apply).toHaveBeenCalledTimes(1);
 
   });
 
   test("should apply multiple params on single target", () => {
 
-    const target = {};
+    const theTarget = {};
     const appliers = [performParamApplier];
     const params = [
-      (target) => {
+      (target: Record<string, any>) => {
         target.key1 = 10;
       },
-      (target) => {
+      (target: Record<string, any>) => {
         target.key2 = 20;
       },
     ];
 
-    applyParamArgs(target, appliers, params, 0);
+    applyParamArgs(theTarget, appliers, params, 0);
 
-    expect(target).toEqual({ key1: 10, key2: 20 });
+    expect(theTarget).toEqual({ key1: 10, key2: 20 });
 
   });
 
@@ -76,10 +74,10 @@ describe("apply params", () => {
     const targets = [{}, {}];
     const appliers = [performParamApplier];
     const params = [
-      (target) => {
+      (target: Record<string, any>) => {
         target.key1 = 10;
       },
-      (target) => {
+      (target: Record<string, any>) => {
         target.key2 = 20;
       },
     ];
@@ -94,18 +92,18 @@ describe("apply params", () => {
 
   test("should apply perform/option params on single target", () => {
 
-    const target = {};
+    const theTarget = {};
     const appliers = [propOptionApplier];
     const params = [
-      (target) => {
+      (target: Record<string, any>) => {
         target.key1 = 10;
       },
       { key2: 20 },
     ];
 
-    applyPerforOptionParamArgs(target, appliers, params, 0);
+    applyPerforOptionParamArgs(theTarget, appliers, params, 0);
 
-    expect(target).toEqual({ key1: 10, key2: 20 });
+    expect(theTarget).toEqual({ key1: 10, key2: 20 });
 
   });
 
@@ -114,7 +112,7 @@ describe("apply params", () => {
     const targets = [{}, {}];
     const appliers = [propOptionApplier];
     const params = [
-      (target) => {
+      (target: Record<string, any>) => {
         target.key1 = 10;
       },
       { key2: 20 },
@@ -129,5 +127,3 @@ describe("apply params", () => {
   });
 
 });
-
-

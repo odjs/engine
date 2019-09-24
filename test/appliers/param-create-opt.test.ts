@@ -1,11 +1,8 @@
-// @ts-check
-
-const { applyParam, createOptionParamApplier } = require("../..");
+import { applyParam, createOptionParamApplier, OptionApplier, ParamTarget } from "../../src";
 
 describe("option param applier", () => {
 
-  const nameToValueOptionApplier = {
-    name: "name-to-value",
+  const nameToValueOptionApplier: OptionApplier<ParamTarget> = {
     apply(target, name) {
       target[name] = name;
     },

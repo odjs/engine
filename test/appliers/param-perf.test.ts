@@ -1,12 +1,10 @@
-// @ts-check
-
-const { performParamApplier, applyParam } = require("../..");
+import { applyParam, ParamTarget, PerformHandlerParam, performParamApplier } from "../../src";
 
 describe("perform param applier", () => {
 
   test("should apply and stop if match", () => {
 
-    const target = {};
+    const theTarget = {};
     const apply = jest.fn();
     const mockParamApplier = {
       name: "mock",
@@ -14,13 +12,13 @@ describe("perform param applier", () => {
     };
     const appliers = [performParamApplier, mockParamApplier];
 
-    const param = (target) => {
+    const param: PerformHandlerParam<ParamTarget> = (target) => {
       target.test = 10;
     };
 
-    applyParam(target, param, appliers);
+    applyParam(theTarget, param, appliers);
 
-    expect(target).toEqual({ test: 10 });
+    expect(theTarget).toEqual({ test: 10 });
     expect(apply).not.toHaveBeenCalled();
 
   });
