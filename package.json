@@ -30,7 +30,6 @@
     "preversion": "npm run clean && npm run build && npm test"
   },
   "devDependencies": {
-    "@types/isarray": "^2.0.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
     "bundlib": "^0.12.6",
