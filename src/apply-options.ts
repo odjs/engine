@@ -11,10 +11,6 @@ export function applyOption<T extends ParamTarget>(
 
     const applier = appliers[i];
 
-    if (!applier) {
-      continue;
-    }
-
     if (!applier.test || applier.test(name, target)) {
       applier.apply(target, name, value);
       break;

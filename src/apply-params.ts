@@ -12,10 +12,6 @@ export function applyParam<T extends ParamTarget>(
 
     const applier = appliers[i];
 
-    if (!applier) {
-      continue;
-    }
-
     if (!applier.test || applier.test(param, target)) {
       applier.apply(target, param);
       break;
