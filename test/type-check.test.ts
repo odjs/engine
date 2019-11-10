@@ -11,8 +11,8 @@ function runTest(validValues: any[], invalidValues: any[], method: (value: any) 
 
 }
 
-// tslint:disable-next-line: no-construct
 const objects = [{}, new Object(), new String(), new Number(), new Boolean()];
+// eslint-disable-next-line @typescript-eslint/no-array-constructor
 const arrays = [[], new Array()];
 const objectsAndArrays = [...objects, ...arrays];
 const strings = ["", "string"];
