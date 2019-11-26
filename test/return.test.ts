@@ -1,51 +1,51 @@
-import { applyMultiParamArgs, applyOption, applyOptionObject, applyParam, applyParamArgs } from "../src";
+import { applyMultiParamArgs, applyOption, applyOptionObject, applyParam, applyParamArgs } from '../src'
 
-describe("return type", () => {
+describe('return type', () => {
 
-  test("should return target from applyParam", () => {
+  test('should return target from applyParam', () => {
 
-    const target = {};
-    const param = {};
-    const result = applyParam(target, param, []);
+    const target = {}
+    const param = {}
+    const result = applyParam(target, param, [])
 
-    expect(result).toBe(target);
+    expect(result).toBe(target)
 
-  });
+  })
 
-  test("should return target from applyParamArgs", () => {
+  test('should return target from applyParamArgs', () => {
 
-    const target = {};
-    const result = applyParamArgs(target, [], [], 0);
+    const target = {}
+    const result = applyParamArgs(target, [], [], 0)
 
-    expect(result).toBe(target);
+    expect(result).toBe(target)
 
-  });
+  })
 
-  test("should return multiple targets from applyMultiParamArgs", () => {
+  test('should return multiple targets from applyMultiParamArgs', () => {
 
-    const targets = [{}, {}];
-    const result = applyMultiParamArgs(targets, [], [], 0);
+    const targets = [{}, {}]
+    const result = applyMultiParamArgs(targets, [], [], 0)
 
-    expect(result).toBe(targets);
+    expect(result).toBe(targets)
 
-  });
+  })
 
-  test("should return target from applyOption", () => {
+  test('should return target from applyOption', () => {
 
-    const target = {};
-    const result = applyOption(100, "test", [target, []]);
+    const target = {}
+    const result = applyOption(100, 'test', [target, []])
 
-    expect(result).toBe(target);
+    expect(result).toBe(target)
 
-  });
+  })
 
-  test("should return target from applyOptionObject", () => {
+  test('should return target from applyOptionObject', () => {
 
-    const target = {};
-    const result = applyOptionObject(target, {}, []);
+    const target = {}
+    const result = applyOptionObject(target, {}, [])
 
-    expect(result).toBe(target);
+    expect(result).toBe(target)
 
-  });
+  })
 
-});
+})

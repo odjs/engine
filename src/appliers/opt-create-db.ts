@@ -1,4 +1,4 @@
-import { Dictionary, OptionApplier, OptionDB, ParamTarget } from "../types";
+import { Dictionary, OptionApplier, OptionDB, ParamTarget } from '../types'
 
 function createDBOptionApplier<T extends ParamTarget>(
   db: OptionDB<T, Dictionary<any>>,
@@ -12,11 +12,11 @@ function createDBOptionApplier<T extends ParamTarget>(
       db[optionName](
         target,
         value,
-      );
+      )
     },
 
-  };
+  }
 
 }
 
-export default createDBOptionApplier;
+export default createDBOptionApplier

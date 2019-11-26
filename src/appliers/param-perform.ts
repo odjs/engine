@@ -1,5 +1,5 @@
-import { isCallable } from "../type-check";
-import { ParamApplier, ParamTarget, PerformHandlerParam } from "../types";
+import { isCallable } from '../type-check'
+import { ParamApplier, ParamTarget, PerformHandlerParam } from '../types'
 
 const performParamApplier: ParamApplier<ParamTarget, PerformHandlerParam<ParamTarget>> = {
 
@@ -9,9 +9,9 @@ const performParamApplier: ParamApplier<ParamTarget, PerformHandlerParam<ParamTa
     param.call(
       target,
       target,
-    );
+    )
   },
 
-};
+}
 
-export default performParamApplier;
+export default performParamApplier

@@ -1,5 +1,5 @@
-import { eachProp } from "./each-prop";
-import { Dictionary, OptionApplier, ParamTarget } from "./types";
+import { eachProp } from './each-prop'
+import { Dictionary, OptionApplier, ParamTarget } from './types'
 
 export function applyOption<T extends ParamTarget>(
   value: unknown,
@@ -9,16 +9,16 @@ export function applyOption<T extends ParamTarget>(
 
   for (let i = 0, len = appliers.length; i < len; i++) {
 
-    const applier = appliers[i];
+    const applier = appliers[i]
 
     if (!applier.test || applier.test(name, target)) {
-      applier.apply(target, name, value);
-      break;
+      applier.apply(target, name, value)
+      break
     }
 
   }
 
-  return target;
+  return target
 
 }
 
@@ -32,8 +32,8 @@ export function applyOptionObject<T extends ParamTarget>(
     options,
     applyOption,
     [target, appliers],
-  );
+  )
 
-  return target;
+  return target
 
 }

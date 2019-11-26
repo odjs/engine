@@ -9,19 +9,19 @@ export function createMockEventTarget(): MockEventTarget {
     listeners: {},
 
     addEventListener(type: string, listener: any) {
-      this.listeners[type] = listener;
+      this.listeners[type] = listener
     },
 
     removeEventListener(type: string, listener: any) {
       if (this.listeners[type] === listener) {
-        delete this.listeners[type];
+        delete this.listeners[type]
       }
     },
 
     dispatchEvent() {
-      return true;
+      return true
     },
 
-  };
+  }
 
 }

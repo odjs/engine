@@ -1,6 +1,6 @@
-import { eachProp } from "../each-prop";
-import { addEventHelper, remEventHelper } from "../helpers";
-import { Dictionary, EventObject, Listener, OptionDB } from "../types";
+import { eachProp } from '../each-prop'
+import { addEventHelper, remEventHelper } from '../helpers'
+import { Dictionary, EventObject, Listener, OptionDB } from '../types'
 
 export interface EventOptionMap<T extends EventTarget, M extends Dictionary<Event>> {
   events: EventObject<T, M> & Dictionary<Listener<T, Event>>;
@@ -16,7 +16,7 @@ function events<T extends EventTarget, M extends Dictionary<Event>>(
     value,
     addEventHelper,
     target,
-  );
+  )
 }
 
 export const eventOptionDB: OptionDB<EventTarget, EventOptionMap<EventTarget, Dictionary<Event>>> = {
@@ -29,7 +29,7 @@ export const eventOptionDB: OptionDB<EventTarget, EventOptionMap<EventTarget, Di
       value,
       remEventHelper,
       target,
-    );
+    )
   },
 
-};
+}
