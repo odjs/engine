@@ -26,7 +26,7 @@
     "build": "bundlib -d",
     "test": "jest --colors -w 3",
     "clean": "rimraf dist types coverage node_modules/.cache/jest node_modules/.cache/bundlib",
-    "lint": "eslint src/** test/**",
+    "lint": "eslint src/** __test__/**",
     "prerelease": "npm run clean && npm run lint && npm test && npm run build",
     "release": "standard-version"
   },
