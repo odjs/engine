@@ -23,8 +23,10 @@ export {
   applyParam,
   applyParamArgs,
   applyMultiParamArgs,
-  applyPerforOptionParamArgs,
-  applyMultiPerforOptionParamArgs,
+  applyPerformOptionParamArgs as applyPerforOptionParamArgs,
+  applyPerformOptionParamArgs,
+  applyMultiPerformOptionParamArgs as applyMultiPerforOptionParamArgs,
+  applyMultiPerformOptionParamArgs,
 } from './apply-params'
 export {
   applyOption,

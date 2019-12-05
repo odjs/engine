@@ -62,7 +62,7 @@ export function applyMultiParamArgs<T extends ParamTarget>(
 
 }
 
-export function applyPerforOptionParamArgs<T extends ParamTarget>(
+export function applyPerformOptionParamArgs<T extends ParamTarget>(
   target: T,
   appliers: Array<OptionApplier<T>>,
   args: ArrayLike<any>,
@@ -81,7 +81,7 @@ export function applyPerforOptionParamArgs<T extends ParamTarget>(
 
 }
 
-export function applyMultiPerforOptionParamArgs<T extends ParamTarget>(
+export function applyMultiPerformOptionParamArgs<T extends ParamTarget>(
   targets: T[],
   appliers: Array<OptionApplier<T>>,
   args: ArrayLike<any>,
@@ -89,7 +89,7 @@ export function applyMultiPerforOptionParamArgs<T extends ParamTarget>(
 ) {
 
   for (let i = 0, len = targets.length; i < len; i++) {
-    applyPerforOptionParamArgs(
+    applyPerformOptionParamArgs(
       targets[i],
       appliers,
       args,
