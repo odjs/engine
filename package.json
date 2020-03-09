@@ -11,8 +11,8 @@
     "appliers",
     "engine"
   ],
-  "main": "dist/engine.cjs.js",
-  "module": "dist/engine.es.js",
+  "main": "dist/engine.js",
+  "module": "dist/engine.mjs",
   "browser": "dist/engine.umd.js",
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
