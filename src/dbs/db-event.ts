@@ -11,7 +11,7 @@ export interface EventOptionMap<T extends EventTarget, M extends Dictionary<Even
 function events<T extends EventTarget, M extends Dictionary<Event>>(
   target: T,
   value: EventObject<T, M> & Dictionary<Listener<T, Event>>,
-) {
+): void {
   eachProp<EventTarget>(
     value,
     addEventHelper,

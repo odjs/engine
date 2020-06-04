@@ -28,7 +28,7 @@ export function applyParamArgs<T extends ParamTarget>(
   appliers: Array<ParamApplier<T, PerformHandlerParam<T>>>,
   args: ArrayLike<any>,
   start?: number,
-) {
+): T {
 
   for (let i = start || 0, len = args.length; i < len; i++) {
     applyParam(
@@ -86,7 +86,7 @@ export function applyMultiPerformOptionParamArgs<T extends ParamTarget>(
   appliers: Array<OptionApplier<T>>,
   args: ArrayLike<any>,
   start?: number,
-) {
+): T[] {
 
   for (let i = 0, len = targets.length; i < len; i++) {
     applyPerformOptionParamArgs(

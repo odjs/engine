@@ -8,11 +8,11 @@ export function createMockEventTarget(): MockEventTarget {
 
     listeners: {},
 
-    addEventListener(type: string, listener: any) {
+    addEventListener(type: string, listener: EventListenerOrEventListenerObject) {
       this.listeners[type] = listener
     },
 
-    removeEventListener(type: string, listener: any) {
+    removeEventListener(type: string, listener: EventListenerOrEventListenerObject) {
       if (this.listeners[type] === listener) {
         delete this.listeners[type]
       }

@@ -1,6 +1,6 @@
 import { isCallable, isNull, isNumber, isObject, isString } from '../src'
 
-function runTest(validValues: any[], invalidValues: any[], method: (value: any) => boolean) {
+function runTest(validValues: unknown[], invalidValues: unknown[], method: (value: any) => boolean) {
 
   const values = [...validValues, ...invalidValues]
   const expected = [...validValues.map(() => true), ...invalidValues.map(() => false)]

@@ -11,7 +11,7 @@ import {
 describe('apply params', () => {
 
   const createMockParamApplier = () => ({
-    apply: jest.fn((target, param) => {
+    apply: jest.fn((target: Record<string, unknown>, param: unknown) => {
       target.mock = param
     }),
   })
