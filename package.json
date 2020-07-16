@@ -16,11 +16,6 @@
   "browser": "dist/engine.umd.js",
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
-  "bundlib": {
-    "name": "odjs",
-    "id": "odjs",
-    "min": "browser"
-  },
   "scripts": {
     "dev": "bundlib -dw",
     "build": "bundlib -d",
