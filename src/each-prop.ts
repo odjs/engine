@@ -1,4 +1,4 @@
-import { Dictionary } from './types'
+import { Dictionary } from './types';
 
 export type EachPropCallback<V = any, TH = any> = (this: TH, value: V, key: string) => void;
 export type EachPropCallbackParam<P, V = any, TH = any> = (this: TH, value: V, key: string, param: P) => void;
@@ -22,7 +22,7 @@ export function eachProp<P, V = any, TH = any>(
 ): void {
   for (const key in object) {
     if (Object.prototype.hasOwnProperty.call(object, key)) {
-      callback.call(this, object[key], key, param)
+      callback.call(this, object[key], key, param);
     }
   }
 }

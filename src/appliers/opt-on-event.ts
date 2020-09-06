@@ -1,4 +1,4 @@
-import { OptionApplier } from '../types'
+import { OptionApplier } from '../types';
 
 const eventOnOptionApplier: OptionApplier<EventTarget> = {
 
@@ -9,9 +9,9 @@ const eventOnOptionApplier: OptionApplier<EventTarget> = {
       optionName.substr(2),
       value as EventListener,
       false,
-    )
+    );
   },
 
-}
+};
 
-export default eventOnOptionApplier
+export default eventOnOptionApplier;

@@ -1,25 +1,25 @@
-import { isCallable, isNull, isNumber, isObject, isString } from '../src'
+import { isCallable, isNull, isNumber, isObject, isString } from '../src';
 
 function runTest(validValues: unknown[], invalidValues: unknown[], method: (value: any) => boolean) {
 
-  const values = [...validValues, ...invalidValues]
-  const expected = [...validValues.map(() => true), ...invalidValues.map(() => false)]
+  const values = [...validValues, ...invalidValues];
+  const expected = [...validValues.map(() => true), ...invalidValues.map(() => false)];
 
-  const result = values.map((value) => method(value))
+  const result = values.map((value) => method(value));
 
-  expect(result).toEqual(expected)
+  expect(result).toEqual(expected);
 
 }
 
-const objects = [{}, new Object(), new String(), new Number(), new Boolean()]
+const objects = [{}, new Object(), new String(), new Number(), new Boolean()];
 // eslint-disable-next-line @typescript-eslint/no-array-constructor
-const arrays = [[], new Array()]
-const objectsAndArrays = [...objects, ...arrays]
-const strings = ['', 'string']
-const booleans = [true, false, !0, !1]
-const numbers = [0, 1, 1 / 0, Number({}), NaN]
-const nulls = [null, undefined, void 0]
-const functions = [describe, () => null, function func() { /**/ }]
+const arrays = [[], new Array()];
+const objectsAndArrays = [...objects, ...arrays];
+const strings = ['', 'string'];
+const booleans = [true, false, !0, !1];
+const numbers = [0, 1, 1 / 0, Number({}), NaN];
+const nulls = [null, undefined, void 0];
+const functions = [describe, () => null, function func() { /**/ }];
 
 describe('type check', () => {
 
@@ -31,9 +31,9 @@ describe('type check', () => {
       ...numbers,
       ...objectsAndArrays,
       ...functions,
-    ], isNull)
+    ], isNull);
 
-  })
+  });
 
   test('should check string type', () => {
 
@@ -43,9 +43,9 @@ describe('type check', () => {
       ...objectsAndArrays,
       ...nulls,
       ...functions,
-    ], isString)
+    ], isString);
 
-  })
+  });
 
   test('should check number type', () => {
 
@@ -55,9 +55,9 @@ describe('type check', () => {
       ...objectsAndArrays,
       ...nulls,
       ...functions,
-    ], isNumber)
+    ], isNumber);
 
-  })
+  });
 
   test('should check object type', () => {
 
@@ -67,9 +67,9 @@ describe('type check', () => {
       ...numbers,
       ...nulls,
       ...functions,
-    ], isObject)
+    ], isObject);
 
-  })
+  });
 
   test('should check function type', () => {
 
@@ -79,8 +79,8 @@ describe('type check', () => {
       ...numbers,
       ...objectsAndArrays,
       ...nulls,
-    ], isCallable)
+    ], isCallable);
 
-  })
+  });
 
-})
+});

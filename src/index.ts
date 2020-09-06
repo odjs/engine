@@ -1,22 +1,22 @@
 // Type Check
-export { isNull, isObject, isString, isNumber, isCallable } from './type-check'
+export { isNull, isObject, isString, isNumber, isCallable } from './type-check';
 
 // Tools
-export { eachProp, EachPropCallback, EachPropCallbackParam } from './each-prop'
+export { eachProp, EachPropCallback, EachPropCallbackParam } from './each-prop';
 
-export { setPropHelper, addEventHelper, remEventHelper } from './helpers'
+export { setPropHelper, addEventHelper, remEventHelper } from './helpers';
 
 // Appliers
-export { default as createDBOptionApplier } from './appliers/opt-create-db'
-export { default as eventDBOptionApplier } from './appliers/opt-event-db'
-export { default as eventOnOptionApplier } from './appliers/opt-on-event'
-export { default as objectDBOptionApplier } from './appliers/opt-object-db'
-export { default as propOptionApplier } from './appliers/opt-prop'
-export { default as createOptionParamApplier } from './appliers/param-create-opt'
-export { default as performParamApplier } from './appliers/param-perform'
+export { default as createDBOptionApplier } from './appliers/opt-create-db';
+export { default as eventDBOptionApplier } from './appliers/opt-event-db';
+export { default as eventOnOptionApplier } from './appliers/opt-on-event';
+export { default as objectDBOptionApplier } from './appliers/opt-object-db';
+export { default as propOptionApplier } from './appliers/opt-prop';
+export { default as createOptionParamApplier } from './appliers/param-create-opt';
+export { default as performParamApplier } from './appliers/param-perform';
 
-export { EventOptionMap, eventOptionDB } from './dbs/db-event'
-export { ObjectOptionMap, objectOptionDB } from './dbs/db-object'
+export { EventOptionMap, eventOptionDB } from './dbs/db-event';
+export { ObjectOptionMap, objectOptionDB } from './dbs/db-object';
 
 // Apply
 export {
@@ -27,11 +27,11 @@ export {
   applyPerformOptionParamArgs,
   applyMultiPerformOptionParamArgs as applyMultiPerforOptionParamArgs,
   applyMultiPerformOptionParamArgs,
-} from './apply-params'
+} from './apply-params';
 export {
   applyOption,
   applyOptionObject,
-} from './apply-options'
+} from './apply-options';
 
 // Types
-export * from './types'
+export * from './types';

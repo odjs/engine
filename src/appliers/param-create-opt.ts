@@ -1,6 +1,6 @@
-import { applyOptionObject } from '../apply-options'
-import { isObject } from '../type-check'
-import { OptionApplier, ParamApplier, ParamTarget } from '../types'
+import { applyOptionObject } from '../apply-options';
+import { isObject } from '../type-check';
+import { OptionApplier, ParamApplier, ParamTarget } from '../types';
 
 function createOptionParamApplier<T extends ParamTarget>(
   appliers: Array<OptionApplier<T>>,
@@ -14,10 +14,10 @@ function createOptionParamApplier<T extends ParamTarget>(
         target,
         param,
         appliers,
-      )
+      );
     },
 
-  }
+  };
 }
 
-export default createOptionParamApplier
+export default createOptionParamApplier;

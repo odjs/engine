@@ -1,6 +1,6 @@
-import createOptionParamApplier from './appliers/param-create-opt'
-import performParamApplier from './appliers/param-perform'
-import { OptionApplier, ParamApplier, ParamTarget, PerformHandlerParam } from './types'
+import createOptionParamApplier from './appliers/param-create-opt';
+import performParamApplier from './appliers/param-perform';
+import { OptionApplier, ParamApplier, ParamTarget, PerformHandlerParam } from './types';
 
 export function applyParam<T extends ParamTarget>(
   target: T,
@@ -10,16 +10,16 @@ export function applyParam<T extends ParamTarget>(
 
   for (let i = 0, len = appliers.length; i < len; i++) {
 
-    const applier = appliers[i]
+    const applier = appliers[i];
 
     if (!applier.test || applier.test(param, target)) {
-      applier.apply(target, param)
-      break
+      applier.apply(target, param);
+      break;
     }
 
   }
 
-  return target
+  return target;
 
 }
 
@@ -35,10 +35,10 @@ export function applyParamArgs<T extends ParamTarget>(
       target,
       args[i],
       appliers,
-    )
+    );
   }
 
-  return target
+  return target;
 
 }
 
@@ -55,10 +55,10 @@ export function applyMultiParamArgs<T extends ParamTarget>(
       appliers,
       args,
       start,
-    )
+    );
   }
 
-  return targets
+  return targets;
 
 }
 
@@ -77,7 +77,7 @@ export function applyPerformOptionParamArgs<T extends ParamTarget>(
     ] as Array<ParamApplier<T, any>>,
     args,
     start,
-  )
+  );
 
 }
 
@@ -94,9 +94,9 @@ export function applyMultiPerformOptionParamArgs<T extends ParamTarget>(
       appliers,
       args,
       start,
-    )
+    );
   }
 
-  return targets
+  return targets;
 
 }
