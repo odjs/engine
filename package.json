@@ -11,11 +11,17 @@
     "appliers",
     "engine"
   ],
-  "main": "dist/engine.js",
-  "module": "dist/engine.mjs",
-  "browser": "dist/engine.umd.js",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
+  "type": "commonjs",
+  "exports": {
+    "import": "./dist/engine.mjs",
+    "default": "./dist/engine.cjs"
+  },
+  "main": "./dist/engine.cjs",
+  "module": "./dist/engine.mjs",
+  "jsnext:main": "./dist/engine.mjs",
+  "browser": "./dist/engine.umd.js",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "dev": "bundlib -dw",
     "build": "bundlib -d",
