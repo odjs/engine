@@ -14,7 +14,6 @@
   },
   "include": [
     "src",
-    "__test__"
   ],
   "exclude": [
     "dist",

@@ -6,6 +6,7 @@ const eventOnOptionApplier: OptionApplier<EventTarget> = {
 
   apply(target, optionName, value) {
     target.addEventListener(
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
       optionName.substr(2),
       value as EventListener,
       false,

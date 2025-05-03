@@ -3,7 +3,7 @@ import { applyOption, applyOptionObject, OptionApplier, propOptionApplier } from
 describe('apply options', () => {
 
   const createMockOptionApplier = (opName: string): OptionApplier<Record<string, any>> => ({
-    test: (optionName) => (optionName === opName),
+    test: (optionName) => optionName === opName,
     apply: jest.fn((target, name, value) => {
       target.mock = { name, value };
     }),

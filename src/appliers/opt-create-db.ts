@@ -6,7 +6,7 @@ function createDBOptionApplier<T extends ParamTarget>(
 
   return {
 
-    test: (optionName) => (optionName in db),
+    test: (optionName) => optionName in db,
 
     apply(target, optionName, value) {
       db[optionName](

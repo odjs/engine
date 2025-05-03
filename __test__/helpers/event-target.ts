@@ -14,6 +14,7 @@ export function createMockEventTarget(): MockEventTarget {
 
     removeEventListener(type: string, listener: EventListenerOrEventListenerObject) {
       if (this.listeners[type] === listener) {
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
         delete this.listeners[type];
       }
     },

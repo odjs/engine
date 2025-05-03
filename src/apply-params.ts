@@ -30,6 +30,7 @@ export function applyParamArgs<T extends ParamTarget>(
   start?: number,
 ): T {
 
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   for (let i = start || 0, len = args.length; i < len; i++) {
     applyParam(
       target,
@@ -71,6 +72,7 @@ export function applyPerformOptionParamArgs<T extends ParamTarget>(
 
   return applyParamArgs<T>(
     target,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     [
       performParamApplier,
       createOptionParamApplier<T>(appliers),

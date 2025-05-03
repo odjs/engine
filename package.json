@@ -26,9 +26,9 @@
     "clean:cache": "rimraf node_modules/.cache/{jest,bundlib}",
     "clean:build": "rimraf dist coverage",
     "clean": "run-p clean:*",
-    "lint:test": "eslint __test__/**",
-    "lint:src": "eslint src/**",
-    "lint": "run-p lint:*",
+    "lint": "eslint .",
+    "lint:test": "eslint __test",
+    "lint:src": "eslint src",
     "build": "bundlib -d",
     "dev": "bundlib -dw",
     "test": "jest --colors -w 3",
@@ -36,21 +36,30 @@
     "release": "standard-version"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.3",
-    "bundlib": "^0.18.4",
-    "chokidar": "^3.5.2",
-    "eslint": "^7.32.0",
-    "jest": "^27.0.6",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.1",
+    "@eslint/js": "^9.26.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.3",
+    "bundlib": "^0.21.4",
+    "chokidar": "^4.0.3",
+    "eslint": "^9.26.0",
+    "eslint-import-resolver-typescript": "^4.3.4",
+    "eslint-plugin-import-x": "^4.11.0",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
-    "standard-version": "^9.3.1",
-    "ts-jest": "^27.0.5",
-    "typescript": "^4.3.5"
+    "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0",
+    "ts-jest": "^29.3.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.1"
+  },
+  "overrides": {
+    "bundlib": {
+      "eslint": "$eslint"
+    }
   },
   "author": {
     "name": "Manuel Fernandez",
