@@ -4,14 +4,12 @@ orbs:
   codecov: codecov/codecov@1.0.5
 
 executors:
-
   node:
     docker:
       - image: circleci/node:10
     working_directory: &working_directory ~/odjs-engine
 
 commands:
-
   npm_publish:
     steps:
       - run:
@@ -23,7 +21,6 @@ commands:
           command: npm publish --access public
 
 jobs:
-
   test_and_build:
     executor: node
     steps:
@@ -68,7 +65,6 @@ workflows:
 
   workflow:
     jobs:
-
       - test_and_build:
           filters:
             tags:
@@ -81,7 +77,7 @@ workflows:
             - test_and_build
           filters:
             branches:
-              only: /master/
+              only: /main/
 
       - publish_to_npm:
           context: npm
