@@ -2,6 +2,12 @@
 
 ## Version History
 
+### [0.0.6](https://github.com/odjs/engine/compare/v0.0.5...v0.0.6) (2025-05-04)
+
+### Bug Fixes
+
+* fixed 2 function names ([9db0239](https://github.com/odjs/engine/commit/9db02395299851b42bcf8ec7a33a444d826f5f52))
+
 ### [0.0.5](https://github.com/odjs/engine/compare/v0.0.4...v0.0.5) (2019-06-27)
 
 * dependencies updated

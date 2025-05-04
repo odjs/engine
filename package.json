@@ -13,7 +13,9 @@
   ],
   "type": "commonjs",
   "exports": {
+    "types": "./dist/index.d.ts",
     "import": "./dist/engine.mjs",
+    "require": "./dist/engine.cjs",
     "default": "./dist/engine.cjs"
   },
   "main": "./dist/engine.cjs",
@@ -23,12 +25,12 @@
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "clean:cache": "rimraf node_modules/.cache/{jest,bundlib}",
+    "clean:cache": "rimraf --glob node_modules/.cache/{jest,bundlib}",
     "clean:build": "rimraf dist coverage",
     "clean": "run-p clean:*",
     "lint": "eslint .",
-    "lint:test": "eslint __test",
     "lint:src": "eslint src",
+    "lint:test": "eslint __test",
     "build": "bundlib -d",
     "dev": "bundlib -dw",
     "test": "jest --colors -w 3",

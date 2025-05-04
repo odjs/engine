@@ -4,5 +4,5 @@ export default config({
   name: 'odjs',
   id: 'odjs',
   min: 'browser',
-  project: './tsconfig-build.json',
+  project: './tsconfig.build.json',
 });
