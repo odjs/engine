@@ -13,17 +13,17 @@
   ],
   "type": "commonjs",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/engine.mjs",
-    "require": "./dist/engine.cjs",
-    "default": "./dist/engine.cjs"
+    "types": "./dist/types/index.d.ts",
+    "import": "./dist/esm/engine.mjs",
+    "require": "./dist/cjs/engine.cjs",
+    "default": "./dist/cjs/engine.cjs"
   },
-  "main": "./dist/engine.cjs",
-  "module": "./dist/engine.mjs",
-  "jsnext:main": "./dist/engine.mjs",
-  "browser": "./dist/engine.umd.js",
-  "types": "./dist/index.d.ts",
-  "typings": "./dist/index.d.ts",
+  "main": "./dist/cjs/engine.cjs",
+  "module": "./dist/esm/engine.mjs",
+  "jsnext:main": "./dist/esm/engine.mjs",
+  "browser": "./dist/umd/engine.umd.js",
+  "types": "./dist/types/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
   "files": [
     "dist"
   ],

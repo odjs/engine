@@ -46,9 +46,9 @@ const stylisticPluginConfig = config(
 );
 
 const typescriptPluginConfig = config(
+  { languageOptions: { parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname } } },
   typescriptPluginConfigs.strictTypeChecked,
   typescriptPluginConfigs.stylisticTypeChecked,
-  { languageOptions: { parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname } } },
   normalizeRulesConfig('@typescript-eslint', {
     'array-type': { default: 'array-simple', readonly: 'array-simple' },
     'unified-signatures': { ignoreDifferentlyNamedParameters: true },
