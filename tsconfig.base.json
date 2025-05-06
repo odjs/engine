@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "ES2015",
-    "moduleResolution": "Node",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node10",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "lib": [
+      "DOM"
+    ],
     "strict": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
