@@ -10,7 +10,8 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "newLine": "lf"
   },
   "exclude": [
     "dist",

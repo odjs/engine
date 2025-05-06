@@ -38,7 +38,7 @@ const stylisticPluginConfig = config(
   }),
   normalizeRulesConfig('@stylistic', {
     quotes: 'single',
-    'linebreak-style': 'windows',
+    'linebreak-style': 'unix',
     'no-extra-parens': 'all',
     'no-extra-semi': 'error',
     'padded-blocks': 'off',
